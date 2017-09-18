@@ -34,40 +34,8 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		4F080A9C33394FC0AA5246C2 /* /Users/westleykirkham/DougAndWes/main.cpp */ = {isa = PBXBuildFile; fileRef = F7BCB1A4823F48278E76B1E1 /* /Users/westleykirkham/DougAndWes/main.cpp */; };
-		DCBEE912F0434694A62F904D /* /Users/westleykirkham/DougAndWes/CMakeLists.txt */ = {isa = PBXBuildFile; fileRef = 1A1414A1AB89402BA755C1A7 /* /Users/westleykirkham/DougAndWes/CMakeLists.txt */; };
+		4F080A9C33394FC0AA5246C2 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7BCB1A4823F48278E76B1E1 /* main.cpp */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXBuildStyle section */
-		7A189D519FD948D49FAE5204 /* Debug */ = {
-			isa = PBXBuildStyle;
-			buildSettings = {
-				COPY_PHASE_STRIP = NO;
-			};
-			name = Debug;
-		};
-		84BC7E2A39094E2C87B42231 /* RelWithDebInfo */ = {
-			isa = PBXBuildStyle;
-			buildSettings = {
-				COPY_PHASE_STRIP = NO;
-			};
-			name = RelWithDebInfo;
-		};
-		CD97A8667DF144959CE41BAA /* MinSizeRel */ = {
-			isa = PBXBuildStyle;
-			buildSettings = {
-				COPY_PHASE_STRIP = NO;
-			};
-			name = MinSizeRel;
-		};
-		E66223B49BD747E18C885632 /* Release */ = {
-			isa = PBXBuildStyle;
-			buildSettings = {
-				COPY_PHASE_STRIP = NO;
-			};
-			name = Release;
-		};
-/* End PBXBuildStyle section */
 
 /* Begin PBXContainerItemProxy section */
 		0431CEB886B14D2E80EBAA32 /* PBXContainerItemProxy */ = {
@@ -94,11 +62,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		11D25681EDF745089AE69EE8 /* /Users/westleykirkham/DougAndWes/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
-		1A1414A1AB89402BA755C1A7 /* /Users/westleykirkham/DougAndWes/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		11D25681EDF745089AE69EE8 /* CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		1A1414A1AB89402BA755C1A7 /* CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		20267A5F1F707E31005808B0 /* world.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = world.cpp; sourceTree = "<group>"; };
+		20267A601F707E31005808B0 /* world.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = world.hpp; sourceTree = "<group>"; };
 		8863C9F8E57849EDA5697E33 /* asteroids */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = asteroids; sourceTree = BUILT_PRODUCTS_DIR; };
-		AAAE24C29C5B4AE489884AE0 /* /Users/westleykirkham/DougAndWes/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
-		F7BCB1A4823F48278E76B1E1 /* /Users/westleykirkham/DougAndWes/main.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = main.cpp; path = main.cpp; sourceTree = SOURCE_ROOT; };
+		AAAE24C29C5B4AE489884AE0 /* CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		F7BCB1A4823F48278E76B1E1 /* main.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; path = main.cpp; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -131,7 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				C88E53E0D2904BD88DD03E17 /* CMake Rules */,
-				AAAE24C29C5B4AE489884AE0 /* /Users/westleykirkham/DougAndWes/CMakeLists.txt */,
+				AAAE24C29C5B4AE489884AE0 /* CMakeLists.txt */,
 			);
 			name = ZERO_CHECK;
 			sourceTree = "<group>";
@@ -140,7 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				252179B737B441CCB0F685D1 /* CMake Rules */,
-				11D25681EDF745089AE69EE8 /* /Users/westleykirkham/DougAndWes/CMakeLists.txt */,
+				11D25681EDF745089AE69EE8 /* CMakeLists.txt */,
 			);
 			name = ALL_BUILD;
 			sourceTree = "<group>";
@@ -148,7 +118,9 @@
 		7A3B983068C148068D676E60 /* Source Files */ = {
 			isa = PBXGroup;
 			children = (
-				F7BCB1A4823F48278E76B1E1 /* /Users/westleykirkham/DougAndWes/main.cpp */,
+				20267A5F1F707E31005808B0 /* world.cpp */,
+				20267A601F707E31005808B0 /* world.hpp */,
+				F7BCB1A4823F48278E76B1E1 /* main.cpp */,
 			);
 			name = "Source Files";
 			sourceTree = "<group>";
@@ -164,7 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				7A3B983068C148068D676E60 /* Source Files */,
-				1A1414A1AB89402BA755C1A7 /* /Users/westleykirkham/DougAndWes/CMakeLists.txt */,
+				1A1414A1AB89402BA755C1A7 /* CMakeLists.txt */,
 			);
 			name = asteroids;
 			sourceTree = "<group>";
@@ -198,16 +170,12 @@
 				LastUpgradeCheck = 0830;
 			};
 			buildConfigurationList = 845756E3F9D24DE6B107617B /* Build configuration list for PBXProject "asteroids" */;
-			buildSettings = {
-			};
-			buildStyles = (
-				7A189D519FD948D49FAE5204 /* Debug */,
-				E66223B49BD747E18C885632 /* Release */,
-				CD97A8667DF144959CE41BAA /* MinSizeRel */,
-				84BC7E2A39094E2C87B42231 /* RelWithDebInfo */,
-			);
 			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
 			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
 			mainGroup = 49263647007D444197EF1469;
 			projectDirPath = ../;
 			projectRoot = "";
@@ -231,21 +199,6 @@
 			shellScript = "make -C /Users/westleykirkham/DougAndWes/xcode -f /Users/westleykirkham/DougAndWes/xcode/CMakeScripts/ZERO_CHECK_cmakeRulesBuildPhase.make$CONFIGURATION all";
 			showEnvVarsInLog = 0;
 		};
-		A81E03A1EEE94AA2B95482C3 = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# shell script goes here
-exit 0";
-			showEnvVarsInLog = 0;
-		};
 		D3B89427B71A4D6FB4C9EB57 /* CMake Rules */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -257,21 +210,6 @@ exit 0";
 			shellScript = "make -C /Users/westleykirkham/DougAndWes/xcode -f /Users/westleykirkham/DougAndWes/xcode/CMakeScripts/ALL_BUILD_cmakeRulesBuildPhase.make$CONFIGURATION all";
 			showEnvVarsInLog = 0;
 		};
-		E5696F39947144E293B9A84E = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# shell script goes here
-exit 0";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -279,7 +217,7 @@ exit 0";
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4F080A9C33394FC0AA5246C2 /* /Users/westleykirkham/DougAndWes/main.cpp */,
+				4F080A9C33394FC0AA5246C2 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -311,7 +249,7 @@ exit 0";
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INSTALL_PATH = "";
 				OTHER_LDFLAGS = " ";
@@ -320,7 +258,12 @@ exit 0";
 				SECTORDER_FLAGS = "";
 				SYMROOT = /Users/westleykirkham/DougAndWes/xcode;
 				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
 			};
 			name = Debug;
 		};
@@ -333,19 +276,33 @@ exit 0";
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_OPTIMIZATION_LEVEL = 3;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = (/usr/local/include);
+				HEADER_SEARCH_PATHS = /usr/local/include;
 				INSTALL_PATH = "";
 				LIBRARY_SEARCH_PATHS = "";
-				OTHER_CPLUSPLUSFLAGS = "    -DNDEBUG '-std=c++14'  ";
-				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  /usr/local/lib/libsfml-graphics.dylib /usr/local/lib/libsfml-window.dylib /usr/local/lib/libsfml-system.dylib";
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DNDEBUG",
+					"'-std=c++14'",
+				);
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					"/usr/local/lib/libsfml-graphics.dylib",
+					"/usr/local/lib/libsfml-window.dylib",
+					"/usr/local/lib/libsfml-system.dylib",
+				);
 				OTHER_REZFLAGS = "";
 				PRODUCT_NAME = asteroids;
 				SECTORDER_FLAGS = "";
 				SYMROOT = /Users/westleykirkham/DougAndWes/xcode;
 				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
 			};
 			name = Release;
 		};
@@ -356,7 +313,7 @@ exit 0";
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INSTALL_PATH = "";
 				OTHER_LDFLAGS = " ";
@@ -365,7 +322,12 @@ exit 0";
 				SECTORDER_FLAGS = "";
 				SYMROOT = /Users/westleykirkham/DougAndWes/xcode;
 				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
 			};
 			name = Debug;
 		};
@@ -378,19 +340,30 @@ exit 0";
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = (/usr/local/include);
+				HEADER_SEARCH_PATHS = /usr/local/include;
 				INSTALL_PATH = "";
 				LIBRARY_SEARCH_PATHS = "";
 				OTHER_CPLUSPLUSFLAGS = "   '-std=c++14'  ";
-				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  /usr/local/lib/libsfml-graphics.dylib /usr/local/lib/libsfml-window.dylib /usr/local/lib/libsfml-system.dylib";
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					"/usr/local/lib/libsfml-graphics.dylib",
+					"/usr/local/lib/libsfml-window.dylib",
+					"/usr/local/lib/libsfml-system.dylib",
+				);
 				OTHER_REZFLAGS = "";
 				PRODUCT_NAME = asteroids;
 				SECTORDER_FLAGS = "";
 				SYMROOT = /Users/westleykirkham/DougAndWes/xcode;
 				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
 			};
 			name = Debug;
 		};
@@ -401,7 +374,7 @@ exit 0";
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INSTALL_PATH = "";
 				OTHER_LDFLAGS = " ";
@@ -410,7 +383,12 @@ exit 0";
 				SECTORDER_FLAGS = "";
 				SYMROOT = /Users/westleykirkham/DougAndWes/xcode;
 				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
 			};
 			name = MinSizeRel;
 		};
@@ -430,7 +408,7 @@ exit 0";
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INSTALL_PATH = "";
 				OTHER_LDFLAGS = " ";
@@ -439,7 +417,12 @@ exit 0";
 				SECTORDER_FLAGS = "";
 				SYMROOT = /Users/westleykirkham/DougAndWes/xcode;
 				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
 			};
 			name = Release;
 		};
@@ -461,19 +444,33 @@ exit 0";
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_OPTIMIZATION_LEVEL = 2;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = (/usr/local/include);
+				HEADER_SEARCH_PATHS = /usr/local/include;
 				INSTALL_PATH = "";
 				LIBRARY_SEARCH_PATHS = "";
-				OTHER_CPLUSPLUSFLAGS = "       -DNDEBUG '-std=c++14'  ";
-				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  /usr/local/lib/libsfml-graphics.dylib /usr/local/lib/libsfml-window.dylib /usr/local/lib/libsfml-system.dylib";
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DNDEBUG",
+					"'-std=c++14'",
+				);
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					"/usr/local/lib/libsfml-graphics.dylib",
+					"/usr/local/lib/libsfml-window.dylib",
+					"/usr/local/lib/libsfml-system.dylib",
+				);
 				OTHER_REZFLAGS = "";
 				PRODUCT_NAME = asteroids;
 				SECTORDER_FLAGS = "";
 				SYMROOT = /Users/westleykirkham/DougAndWes/xcode;
 				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
 			};
 			name = RelWithDebInfo;
 		};
@@ -493,7 +490,7 @@ exit 0";
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INSTALL_PATH = "";
 				OTHER_LDFLAGS = " ";
@@ -502,7 +499,12 @@ exit 0";
 				SECTORDER_FLAGS = "";
 				SYMROOT = /Users/westleykirkham/DougAndWes/xcode;
 				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
 			};
 			name = Release;
 		};
@@ -515,19 +517,33 @@ exit 0";
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_OPTIMIZATION_LEVEL = s;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = (/usr/local/include);
+				HEADER_SEARCH_PATHS = /usr/local/include;
 				INSTALL_PATH = "";
 				LIBRARY_SEARCH_PATHS = "";
-				OTHER_CPLUSPLUSFLAGS = "    -DNDEBUG '-std=c++14'  ";
-				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  /usr/local/lib/libsfml-graphics.dylib /usr/local/lib/libsfml-window.dylib /usr/local/lib/libsfml-system.dylib";
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DNDEBUG",
+					"'-std=c++14'",
+				);
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					"/usr/local/lib/libsfml-graphics.dylib",
+					"/usr/local/lib/libsfml-window.dylib",
+					"/usr/local/lib/libsfml-system.dylib",
+				);
 				OTHER_REZFLAGS = "";
 				PRODUCT_NAME = asteroids;
 				SECTORDER_FLAGS = "";
 				SYMROOT = /Users/westleykirkham/DougAndWes/xcode;
 				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
 			};
 			name = MinSizeRel;
 		};
@@ -547,7 +563,7 @@ exit 0";
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INSTALL_PATH = "";
 				OTHER_LDFLAGS = " ";
@@ -556,7 +572,12 @@ exit 0";
 				SECTORDER_FLAGS = "";
 				SYMROOT = /Users/westleykirkham/DougAndWes/xcode;
 				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
 			};
 			name = RelWithDebInfo;
 		};
@@ -567,7 +588,7 @@ exit 0";
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INSTALL_PATH = "";
 				OTHER_LDFLAGS = " ";
@@ -576,7 +597,12 @@ exit 0";
 				SECTORDER_FLAGS = "";
 				SYMROOT = /Users/westleykirkham/DougAndWes/xcode;
 				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
 			};
 			name = RelWithDebInfo;
 		};
@@ -587,7 +613,7 @@ exit 0";
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INSTALL_PATH = "";
 				OTHER_LDFLAGS = " ";
@@ -596,7 +622,12 @@ exit 0";
 				SECTORDER_FLAGS = "";
 				SYMROOT = /Users/westleykirkham/DougAndWes/xcode;
 				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
 			};
 			name = MinSizeRel;
 		};
