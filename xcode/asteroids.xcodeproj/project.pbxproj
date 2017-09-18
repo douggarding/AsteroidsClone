@@ -9,9 +9,9 @@
 /* Begin PBXAggregateTarget section */
 		64FFC10400984481A30D5F8E /* ZERO_CHECK */ = {
 			isa = PBXAggregateTarget;
-			buildConfigurationList = 244FD15FAC684EAD96631FD4 /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */;
+			buildConfigurationList = B569E5CF28C64E8FA63D1047 /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */;
 			buildPhases = (
-				3DA86921AB5247ECB4DFB9AE /* CMake Rules */,
+				81F4F457C3414DDE83121249 /* CMake Rules */,
 			);
 			dependencies = (
 			);
@@ -20,13 +20,13 @@
 		};
 		7C25FB4404B9464ABC7CD39B /* ALL_BUILD */ = {
 			isa = PBXAggregateTarget;
-			buildConfigurationList = 1BEFD62AADB24C88B4110374 /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */;
+			buildConfigurationList = A7EA66EFF1074A519AB18697 /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */;
 			buildPhases = (
-				08449B87E31240C1968B420B /* CMake Rules */,
+				D3B89427B71A4D6FB4C9EB57 /* CMake Rules */,
 			);
 			dependencies = (
-				6E94E151952D4CA59B7C9FB6 /* PBXTargetDependency */,
-				F41C1E1C6AC4436BBD25ED25 /* PBXTargetDependency */,
+				A7091582BD0D47E8BD52F51C /* PBXTargetDependency */,
+				D20BC2C8A2C3404887E621B2 /* PBXTargetDependency */,
 			);
 			name = ALL_BUILD;
 			productName = ALL_BUILD;
@@ -34,33 +34,33 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		5E21AAFCA9244A6FA443EA48 /* /Users/westleykirkham/DougAndWes/CMakeLists.txt */ = {isa = PBXBuildFile; fileRef = 1BB85FAFC217486EB27253AB /* /Users/westleykirkham/DougAndWes/CMakeLists.txt */; };
-		AB5485E7CCE545E3B45C19A1 /* /Users/westleykirkham/DougAndWes/main.cpp */ = {isa = PBXBuildFile; fileRef = 09B6D3E7714B4E31AF50BE6A /* /Users/westleykirkham/DougAndWes/main.cpp */; };
+		4F080A9C33394FC0AA5246C2 /* /Users/westleykirkham/DougAndWes/main.cpp */ = {isa = PBXBuildFile; fileRef = F7BCB1A4823F48278E76B1E1 /* /Users/westleykirkham/DougAndWes/main.cpp */; };
+		DCBEE912F0434694A62F904D /* /Users/westleykirkham/DougAndWes/CMakeLists.txt */ = {isa = PBXBuildFile; fileRef = 1A1414A1AB89402BA755C1A7 /* /Users/westleykirkham/DougAndWes/CMakeLists.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildStyle section */
-		153BF7D9C54840D0A7107FF5 /* MinSizeRel */ = {
-			isa = PBXBuildStyle;
-			buildSettings = {
-				COPY_PHASE_STRIP = NO;
-			};
-			name = MinSizeRel;
-		};
-		5426D5A9E3344A03800CFC6E /* Debug */ = {
+		7A189D519FD948D49FAE5204 /* Debug */ = {
 			isa = PBXBuildStyle;
 			buildSettings = {
 				COPY_PHASE_STRIP = NO;
 			};
 			name = Debug;
 		};
-		EC3D3A75CE4445BB9DEE2B60 /* RelWithDebInfo */ = {
+		84BC7E2A39094E2C87B42231 /* RelWithDebInfo */ = {
 			isa = PBXBuildStyle;
 			buildSettings = {
 				COPY_PHASE_STRIP = NO;
 			};
 			name = RelWithDebInfo;
 		};
-		FAD9B663097B4C339F9DDC0A /* Release */ = {
+		CD97A8667DF144959CE41BAA /* MinSizeRel */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = MinSizeRel;
+		};
+		E66223B49BD747E18C885632 /* Release */ = {
 			isa = PBXBuildStyle;
 			buildSettings = {
 				COPY_PHASE_STRIP = NO;
@@ -70,103 +70,103 @@
 /* End PBXBuildStyle section */
 
 /* Begin PBXContainerItemProxy section */
-		43E3D1CA27F04634BE65E66B /* PBXContainerItemProxy */ = {
+		0431CEB886B14D2E80EBAA32 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5366C707CF4344A9B38D2557 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 64FFC10400984481A30D5F8E;
+			remoteInfo = ZERO_CHECK;
+		};
+		2D1707F89D8E414A94899601 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5366C707CF4344A9B38D2557 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 64FFC10400984481A30D5F8E;
+			remoteInfo = ZERO_CHECK;
+		};
+		CB31C122C016444FB195243F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5366C707CF4344A9B38D2557 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 95BDBFA65522422B8B1AA3B2;
 			remoteInfo = asteroids;
 		};
-		89E84CD9206D491C87AA25F9 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5366C707CF4344A9B38D2557 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 64FFC10400984481A30D5F8E;
-			remoteInfo = ZERO_CHECK;
-		};
-		F83D46BF17814B5E983E1374 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5366C707CF4344A9B38D2557 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 64FFC10400984481A30D5F8E;
-			remoteInfo = ZERO_CHECK;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		09B6D3E7714B4E31AF50BE6A /* /Users/westleykirkham/DougAndWes/main.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = main.cpp; path = main.cpp; sourceTree = SOURCE_ROOT; };
-		1BB85FAFC217486EB27253AB /* /Users/westleykirkham/DougAndWes/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
-		24110E8ABE1144F78CD0F264 /* /Users/westleykirkham/DougAndWes/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
-		63B561EDAC0245599B3FFB3A /* asteroids */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = asteroids; sourceTree = BUILT_PRODUCTS_DIR; };
-		C2DF98A4DFCE432ABD3B7197 /* /Users/westleykirkham/DougAndWes/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		11D25681EDF745089AE69EE8 /* /Users/westleykirkham/DougAndWes/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		1A1414A1AB89402BA755C1A7 /* /Users/westleykirkham/DougAndWes/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		8863C9F8E57849EDA5697E33 /* asteroids */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = asteroids; sourceTree = BUILT_PRODUCTS_DIR; };
+		AAAE24C29C5B4AE489884AE0 /* /Users/westleykirkham/DougAndWes/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		F7BCB1A4823F48278E76B1E1 /* /Users/westleykirkham/DougAndWes/main.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = main.cpp; path = main.cpp; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
-		0227A14A13474AB7ABF8934F /* CMake Rules */ = {
+		252179B737B441CCB0F685D1 /* CMake Rules */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			name = "CMake Rules";
 			sourceTree = "<group>";
 		};
-		35CDBA9C67B34654A1824754 /* Products */ = {
+		3152384A601B4769ACD41249 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				63B561EDAC0245599B3FFB3A /* asteroids */,
+				8863C9F8E57849EDA5697E33 /* asteroids */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		3CBB4E9C70254D4FA740A3C0 /* asteroids */ = {
+		49263647007D444197EF1469 = {
 			isa = PBXGroup;
 			children = (
-				5C25CCA5EDC24EC5BC555B3F /* Source Files */,
-				1BB85FAFC217486EB27253AB /* /Users/westleykirkham/DougAndWes/CMakeLists.txt */,
+				E5B2D78BF6634843AAD46119 /* asteroids */,
+				72935422AE0741289BBA062E /* ALL_BUILD */,
+				5E6BDC851868470BBE8BCE28 /* ZERO_CHECK */,
+				3152384A601B4769ACD41249 /* Products */,
 			);
-			name = asteroids;
 			sourceTree = "<group>";
 		};
-		46594AE15604404D852C2533 /* CMake Rules */ = {
+		5E6BDC851868470BBE8BCE28 /* ZERO_CHECK */ = {
+			isa = PBXGroup;
+			children = (
+				C88E53E0D2904BD88DD03E17 /* CMake Rules */,
+				AAAE24C29C5B4AE489884AE0 /* /Users/westleykirkham/DougAndWes/CMakeLists.txt */,
+			);
+			name = ZERO_CHECK;
+			sourceTree = "<group>";
+		};
+		72935422AE0741289BBA062E /* ALL_BUILD */ = {
+			isa = PBXGroup;
+			children = (
+				252179B737B441CCB0F685D1 /* CMake Rules */,
+				11D25681EDF745089AE69EE8 /* /Users/westleykirkham/DougAndWes/CMakeLists.txt */,
+			);
+			name = ALL_BUILD;
+			sourceTree = "<group>";
+		};
+		7A3B983068C148068D676E60 /* Source Files */ = {
+			isa = PBXGroup;
+			children = (
+				F7BCB1A4823F48278E76B1E1 /* /Users/westleykirkham/DougAndWes/main.cpp */,
+			);
+			name = "Source Files";
+			sourceTree = "<group>";
+		};
+		C88E53E0D2904BD88DD03E17 /* CMake Rules */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			name = "CMake Rules";
 			sourceTree = "<group>";
 		};
-		5C25CCA5EDC24EC5BC555B3F /* Source Files */ = {
+		E5B2D78BF6634843AAD46119 /* asteroids */ = {
 			isa = PBXGroup;
 			children = (
-				09B6D3E7714B4E31AF50BE6A /* /Users/westleykirkham/DougAndWes/main.cpp */,
+				7A3B983068C148068D676E60 /* Source Files */,
+				1A1414A1AB89402BA755C1A7 /* /Users/westleykirkham/DougAndWes/CMakeLists.txt */,
 			);
-			name = "Source Files";
-			sourceTree = "<group>";
-		};
-		7DD2B07511EC4289821B8858 /* ALL_BUILD */ = {
-			isa = PBXGroup;
-			children = (
-				46594AE15604404D852C2533 /* CMake Rules */,
-				C2DF98A4DFCE432ABD3B7197 /* /Users/westleykirkham/DougAndWes/CMakeLists.txt */,
-			);
-			name = ALL_BUILD;
-			sourceTree = "<group>";
-		};
-		905AE353E768404D9CAEA11B /* ZERO_CHECK */ = {
-			isa = PBXGroup;
-			children = (
-				0227A14A13474AB7ABF8934F /* CMake Rules */,
-				24110E8ABE1144F78CD0F264 /* /Users/westleykirkham/DougAndWes/CMakeLists.txt */,
-			);
-			name = ZERO_CHECK;
-			sourceTree = "<group>";
-		};
-		BDE69F875CAF4DB59CAE564E = {
-			isa = PBXGroup;
-			children = (
-				3CBB4E9C70254D4FA740A3C0 /* asteroids */,
-				7DD2B07511EC4289821B8858 /* ALL_BUILD */,
-				905AE353E768404D9CAEA11B /* ZERO_CHECK */,
-				35CDBA9C67B34654A1824754 /* Products */,
-			);
+			name = asteroids;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -174,18 +174,18 @@
 /* Begin PBXNativeTarget section */
 		95BDBFA65522422B8B1AA3B2 /* asteroids */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 987C9FDDEEBF48E1879A7C29 /* Build configuration list for PBXNativeTarget "asteroids" */;
+			buildConfigurationList = 30C26A741D5E4F4EADD3CC5B /* Build configuration list for PBXNativeTarget "asteroids" */;
 			buildPhases = (
-				960C45F3A96748D5905964EE /* Sources */,
+				F390CB8A13C14A8C8F36A66E /* Sources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				7FE9F428D70F45ADBD723E24 /* PBXTargetDependency */,
+				DFC372CEF4C244819B4288AE /* PBXTargetDependency */,
 			);
 			name = asteroids;
 			productName = asteroids;
-			productReference = 63B561EDAC0245599B3FFB3A /* asteroids */;
+			productReference = 8863C9F8E57849EDA5697E33 /* asteroids */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -197,18 +197,18 @@
 				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 0830;
 			};
-			buildConfigurationList = B0A3ACBE6C6E4C2CA4523010 /* Build configuration list for PBXProject "asteroids" */;
+			buildConfigurationList = 845756E3F9D24DE6B107617B /* Build configuration list for PBXProject "asteroids" */;
 			buildSettings = {
 			};
 			buildStyles = (
-				5426D5A9E3344A03800CFC6E /* Debug */,
-				FAD9B663097B4C339F9DDC0A /* Release */,
-				153BF7D9C54840D0A7107FF5 /* MinSizeRel */,
-				EC3D3A75CE4445BB9DEE2B60 /* RelWithDebInfo */,
+				7A189D519FD948D49FAE5204 /* Debug */,
+				E66223B49BD747E18C885632 /* Release */,
+				CD97A8667DF144959CE41BAA /* MinSizeRel */,
+				84BC7E2A39094E2C87B42231 /* RelWithDebInfo */,
 			);
 			compatibilityVersion = "Xcode 3.2";
 			hasScannedForEncodings = 0;
-			mainGroup = BDE69F875CAF4DB59CAE564E;
+			mainGroup = 49263647007D444197EF1469;
 			projectDirPath = ../;
 			projectRoot = "";
 			targets = (
@@ -220,18 +220,7 @@
 /* End PBXProject section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		08449B87E31240C1968B420B /* CMake Rules */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			name = "CMake Rules";
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "make -C /Users/westleykirkham/DougAndWes/xcode -f /Users/westleykirkham/DougAndWes/xcode/CMakeScripts/ALL_BUILD_cmakeRulesBuildPhase.make$CONFIGURATION all";
-			showEnvVarsInLog = 0;
-		};
-		3DA86921AB5247ECB4DFB9AE /* CMake Rules */ = {
+		81F4F457C3414DDE83121249 /* CMake Rules */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -242,7 +231,7 @@
 			shellScript = "make -C /Users/westleykirkham/DougAndWes/xcode -f /Users/westleykirkham/DougAndWes/xcode/CMakeScripts/ZERO_CHECK_cmakeRulesBuildPhase.make$CONFIGURATION all";
 			showEnvVarsInLog = 0;
 		};
-		AAC44D3B33FD4E55AECB7091 = {
+		A81E03A1EEE94AA2B95482C3 = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -257,7 +246,18 @@
 exit 0";
 			showEnvVarsInLog = 0;
 		};
-		E3E701D19EF0419C851A7908 = {
+		D3B89427B71A4D6FB4C9EB57 /* CMake Rules */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "CMake Rules";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make -C /Users/westleykirkham/DougAndWes/xcode -f /Users/westleykirkham/DougAndWes/xcode/CMakeScripts/ALL_BUILD_cmakeRulesBuildPhase.make$CONFIGURATION all";
+			showEnvVarsInLog = 0;
+		};
+		E5696F39947144E293B9A84E = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -275,36 +275,56 @@ exit 0";
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		960C45F3A96748D5905964EE /* Sources */ = {
+		F390CB8A13C14A8C8F36A66E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AB5485E7CCE545E3B45C19A1 /* /Users/westleykirkham/DougAndWes/main.cpp */,
+				4F080A9C33394FC0AA5246C2 /* /Users/westleykirkham/DougAndWes/main.cpp */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		6E94E151952D4CA59B7C9FB6 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 64FFC10400984481A30D5F8E /* ZERO_CHECK */;
-			targetProxy = 89E84CD9206D491C87AA25F9 /* PBXContainerItemProxy */;
-		};
-		7FE9F428D70F45ADBD723E24 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 64FFC10400984481A30D5F8E /* ZERO_CHECK */;
-			targetProxy = F83D46BF17814B5E983E1374 /* PBXContainerItemProxy */;
-		};
-		F41C1E1C6AC4436BBD25ED25 /* PBXTargetDependency */ = {
+		A7091582BD0D47E8BD52F51C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 95BDBFA65522422B8B1AA3B2 /* asteroids */;
-			targetProxy = 43E3D1CA27F04634BE65E66B /* PBXContainerItemProxy */;
+			targetProxy = CB31C122C016444FB195243F /* PBXContainerItemProxy */;
+		};
+		D20BC2C8A2C3404887E621B2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 64FFC10400984481A30D5F8E /* ZERO_CHECK */;
+			targetProxy = 2D1707F89D8E414A94899601 /* PBXContainerItemProxy */;
+		};
+		DFC372CEF4C244819B4288AE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 64FFC10400984481A30D5F8E /* ZERO_CHECK */;
+			targetProxy = 0431CEB886B14D2E80EBAA32 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		05875AF8CF3649749947DBC8 /* Release */ = {
+		102E1C52D027490FB8F84A33 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/westleykirkham/DougAndWes/xcode;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Debug;
+		};
+		1231036238BD43C3BDFE3206 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -329,7 +349,7 @@ exit 0";
 			};
 			name = Release;
 		};
-		105D9DCE549D41F5B913E084 /* Release */ = {
+		201695CBE6E34196A65B2F5C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -341,65 +361,15 @@ exit 0";
 				INSTALL_PATH = "";
 				OTHER_LDFLAGS = " ";
 				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = ALL_BUILD;
+				PRODUCT_NAME = ZERO_CHECK;
 				SECTORDER_FLAGS = "";
 				SYMROOT = /Users/westleykirkham/DougAndWes/xcode;
 				USE_HEADERMAP = NO;
 				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
 			};
-			name = Release;
+			name = Debug;
 		};
-		27C34CE6C09A434FB7FD51F3 /* MinSizeRel */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				EXECUTABLE_PREFIX = "";
-				EXECUTABLE_SUFFIX = "";
-				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = s;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = (/usr/local/include);
-				INSTALL_PATH = "";
-				LIBRARY_SEARCH_PATHS = "";
-				OTHER_CPLUSPLUSFLAGS = "    -DNDEBUG '-std=c++14'  ";
-				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  /usr/local/lib/libsfml-graphics.dylib /usr/local/lib/libsfml-window.dylib /usr/local/lib/libsfml-system.dylib";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = asteroids;
-				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/westleykirkham/DougAndWes/xcode;
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
-			};
-			name = MinSizeRel;
-		};
-		2BE31F13AF9547FE8AACB663 /* RelWithDebInfo */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				EXECUTABLE_PREFIX = "";
-				EXECUTABLE_SUFFIX = "";
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 2;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = (/usr/local/include);
-				INSTALL_PATH = "";
-				LIBRARY_SEARCH_PATHS = "";
-				OTHER_CPLUSPLUSFLAGS = "       -DNDEBUG '-std=c++14'  ";
-				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  /usr/local/lib/libsfml-graphics.dylib /usr/local/lib/libsfml-window.dylib /usr/local/lib/libsfml-system.dylib";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = asteroids;
-				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/westleykirkham/DougAndWes/xcode;
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
-			};
-			name = RelWithDebInfo;
-		};
-		4327FCEDA0F749C7AE5B7056 /* Debug */ = {
+		22EAC00BAADA4FEA99C41D5A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -424,27 +394,7 @@ exit 0";
 			};
 			name = Debug;
 		};
-		5E4ED38B3A4E4D37BD2D8551 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INSTALL_PATH = "";
-				OTHER_LDFLAGS = " ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = ZERO_CHECK;
-				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/westleykirkham/DougAndWes/xcode;
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
-			};
-			name = Debug;
-		};
-		651F390E3836485395B230C6 /* RelWithDebInfo */ = {
+		45E72FDC34804D9CAEA47EFF /* MinSizeRel */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -462,18 +412,9 @@ exit 0";
 				USE_HEADERMAP = NO;
 				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
 			};
-			name = RelWithDebInfo;
+			name = MinSizeRel;
 		};
-		6C9BABD5E148454DB7C81804 /* RelWithDebInfo */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk;
-				SYMROOT = /Users/westleykirkham/DougAndWes/xcode/build;
-			};
-			name = RelWithDebInfo;
-		};
-		761CC2CEDED64020AFAD5BCD /* Debug */ = {
+		5B8A9F96C7FF490FB6FD9D06 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ONLY_ACTIVE_ARCH = YES;
@@ -482,7 +423,27 @@ exit 0";
 			};
 			name = Debug;
 		};
-		78573573AFD14FDB80E6ECFD /* Release */ = {
+		79D2129C14A7402D986961D8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/westleykirkham/DougAndWes/xcode;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Release;
+		};
+		8DE0C8C57D9A40C596EB679F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ONLY_ACTIVE_ARCH = YES;
@@ -491,67 +452,32 @@ exit 0";
 			};
 			name = Release;
 		};
-		8AF282E0F81C423FA2060C05 /* Debug */ = {
+		A502DA855F4E4B7585624E0F /* RelWithDebInfo */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_OPTIMIZATION_LEVEL = 2;
 				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/usr/local/include);
 				INSTALL_PATH = "";
-				OTHER_LDFLAGS = " ";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CPLUSPLUSFLAGS = "       -DNDEBUG '-std=c++14'  ";
+				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  /usr/local/lib/libsfml-graphics.dylib /usr/local/lib/libsfml-window.dylib /usr/local/lib/libsfml-system.dylib";
 				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = ALL_BUILD;
+				PRODUCT_NAME = asteroids;
 				SECTORDER_FLAGS = "";
 				SYMROOT = /Users/westleykirkham/DougAndWes/xcode;
 				USE_HEADERMAP = NO;
 				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
 			};
-			name = Debug;
+			name = RelWithDebInfo;
 		};
-		8B26572E8E684A1D98BBEFB3 /* MinSizeRel */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INSTALL_PATH = "";
-				OTHER_LDFLAGS = " ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = ALL_BUILD;
-				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/westleykirkham/DougAndWes/xcode;
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
-			};
-			name = MinSizeRel;
-		};
-		A89D327F2BCA4532B8A2A87B /* MinSizeRel */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INSTALL_PATH = "";
-				OTHER_LDFLAGS = " ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = ZERO_CHECK;
-				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/westleykirkham/DougAndWes/xcode;
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
-			};
-			name = MinSizeRel;
-		};
-		B10FDB658722483CBA7ACC6D /* MinSizeRel */ = {
+		BD3FCE1EF3CD47DBB7469640 /* MinSizeRel */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ONLY_ACTIVE_ARCH = YES;
@@ -560,7 +486,7 @@ exit 0";
 			};
 			name = MinSizeRel;
 		};
-		C4EAAD428FA942ED8BED759C /* Release */ = {
+		DDF71087D6E94FD6BA4414B0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -580,7 +506,61 @@ exit 0";
 			};
 			name = Release;
 		};
-		E5701A152F1C4AC7B7393FE6 /* RelWithDebInfo */ = {
+		E16B105E765445228446939B /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/usr/local/include);
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CPLUSPLUSFLAGS = "    -DNDEBUG '-std=c++14'  ";
+				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  /usr/local/lib/libsfml-graphics.dylib /usr/local/lib/libsfml-window.dylib /usr/local/lib/libsfml-system.dylib";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = asteroids;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/westleykirkham/DougAndWes/xcode;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		E978B11662E143FA887B7C52 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk;
+				SYMROOT = /Users/westleykirkham/DougAndWes/xcode/build;
+			};
+			name = RelWithDebInfo;
+		};
+		F516ABD0484441EEBF777F29 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/westleykirkham/DougAndWes/xcode;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		FD5E5B2BFCF54657AE8DA0F8 /* RelWithDebInfo */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -599,50 +579,70 @@ exit 0";
 				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
 			};
 			name = RelWithDebInfo;
+		};
+		FD6FD5D3372C47E9B2B7088B /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/westleykirkham/DougAndWes/xcode;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = MinSizeRel;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1BEFD62AADB24C88B4110374 /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */ = {
+		30C26A741D5E4F4EADD3CC5B /* Build configuration list for PBXNativeTarget "asteroids" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				8AF282E0F81C423FA2060C05 /* Debug */,
-				105D9DCE549D41F5B913E084 /* Release */,
-				8B26572E8E684A1D98BBEFB3 /* MinSizeRel */,
-				651F390E3836485395B230C6 /* RelWithDebInfo */,
+				22EAC00BAADA4FEA99C41D5A /* Debug */,
+				1231036238BD43C3BDFE3206 /* Release */,
+				E16B105E765445228446939B /* MinSizeRel */,
+				A502DA855F4E4B7585624E0F /* RelWithDebInfo */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		244FD15FAC684EAD96631FD4 /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */ = {
+		845756E3F9D24DE6B107617B /* Build configuration list for PBXProject "asteroids" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5E4ED38B3A4E4D37BD2D8551 /* Debug */,
-				C4EAAD428FA942ED8BED759C /* Release */,
-				A89D327F2BCA4532B8A2A87B /* MinSizeRel */,
-				E5701A152F1C4AC7B7393FE6 /* RelWithDebInfo */,
+				5B8A9F96C7FF490FB6FD9D06 /* Debug */,
+				8DE0C8C57D9A40C596EB679F /* Release */,
+				BD3FCE1EF3CD47DBB7469640 /* MinSizeRel */,
+				E978B11662E143FA887B7C52 /* RelWithDebInfo */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		987C9FDDEEBF48E1879A7C29 /* Build configuration list for PBXNativeTarget "asteroids" */ = {
+		A7EA66EFF1074A519AB18697 /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				4327FCEDA0F749C7AE5B7056 /* Debug */,
-				05875AF8CF3649749947DBC8 /* Release */,
-				27C34CE6C09A434FB7FD51F3 /* MinSizeRel */,
-				2BE31F13AF9547FE8AACB663 /* RelWithDebInfo */,
+				102E1C52D027490FB8F84A33 /* Debug */,
+				79D2129C14A7402D986961D8 /* Release */,
+				45E72FDC34804D9CAEA47EFF /* MinSizeRel */,
+				F516ABD0484441EEBF777F29 /* RelWithDebInfo */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		B0A3ACBE6C6E4C2CA4523010 /* Build configuration list for PBXProject "asteroids" */ = {
+		B569E5CF28C64E8FA63D1047 /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				761CC2CEDED64020AFAD5BCD /* Debug */,
-				78573573AFD14FDB80E6ECFD /* Release */,
-				B10FDB658722483CBA7ACC6D /* MinSizeRel */,
-				6C9BABD5E148454DB7C81804 /* RelWithDebInfo */,
+				201695CBE6E34196A65B2F5C /* Debug */,
+				DDF71087D6E94FD6BA4414B0 /* Release */,
+				FD6FD5D3372C47E9B2B7088B /* MinSizeRel */,
+				FD5E5B2BFCF54657AE8DA0F8 /* RelWithDebInfo */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
