@@ -34,6 +34,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		20267A631F7080E2005808B0 /* ship.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 20267A611F7080E2005808B0 /* ship.cpp */; };
 		4F080A9C33394FC0AA5246C2 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7BCB1A4823F48278E76B1E1 /* main.cpp */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +67,8 @@
 		1A1414A1AB89402BA755C1A7 /* CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
 		20267A5F1F707E31005808B0 /* world.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = world.cpp; sourceTree = "<group>"; };
 		20267A601F707E31005808B0 /* world.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = world.hpp; sourceTree = "<group>"; };
+		20267A611F7080E2005808B0 /* ship.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ship.cpp; sourceTree = "<group>"; };
+		20267A621F7080E2005808B0 /* ship.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ship.hpp; sourceTree = "<group>"; };
 		8863C9F8E57849EDA5697E33 /* asteroids */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = asteroids; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAAE24C29C5B4AE489884AE0 /* CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
 		F7BCB1A4823F48278E76B1E1 /* main.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; path = main.cpp; sourceTree = SOURCE_ROOT; };
@@ -121,6 +124,8 @@
 				20267A5F1F707E31005808B0 /* world.cpp */,
 				20267A601F707E31005808B0 /* world.hpp */,
 				F7BCB1A4823F48278E76B1E1 /* main.cpp */,
+				20267A611F7080E2005808B0 /* ship.cpp */,
+				20267A621F7080E2005808B0 /* ship.hpp */,
 			);
 			name = "Source Files";
 			sourceTree = "<group>";
@@ -218,6 +223,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F080A9C33394FC0AA5246C2 /* main.cpp in Sources */,
+				20267A631F7080E2005808B0 /* ship.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

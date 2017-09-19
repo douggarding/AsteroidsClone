@@ -2,7 +2,7 @@
 //  world.hpp
 //  asteroids
 //
-//  Created by Westley Kirkham on 9/18/17.
+//  Created by Westley Kirkham and Doug Garding on 9/18/17.
 //
 //
 
