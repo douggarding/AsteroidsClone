@@ -10,12 +10,17 @@
 #define ship_hpp
 #include <SFML/Graphics.hpp>
 
-struct ship{
+class ship{
+public:
+    ship(int size, int xPos, int yPos);
+    sf::CircleShape triangle;
     sf::Vector2f position;
     sf::Vector2f velocity; // contains initial velocity(Vo) and acceleration (a)
     int rotation;
     int lives;
     int size;
+    
+    sf::CircleShape buildFrame();
 };
 
 

@@ -23,12 +23,7 @@ int main(int argc, const char * argv[]){
     // on to the next level. We may not want to show the ship initially,
     // but wait a few seconds. It depends, it's mostly a stylistic option.
     // Most of this can/should also be moved to methods/constructors.
-    ship player_ship;
-    player_ship.size = 20;
-    player_ship.position.x = (width/2 - player_ship.size);
-    player_ship.position.y = (height/2 - player_ship.size);
-    player_ship.rotation = 0;
-    player_ship.lives = 3;
+    ship player_ship = ship(20, width/2 - 20, height/2 - 20);
     
     
     while (window.isOpen())
@@ -44,14 +39,7 @@ int main(int argc, const char * argv[]){
         
         window.clear(sf::Color(44, 33, 68));
         
-        sf::CircleShape triangle(player_ship.size, 3);
-        triangle.setFillColor(sf::Color::Black);
-        triangle.setOutlineThickness(-3);
-        triangle.setOutlineColor(sf::Color::White);
-        triangle.setPosition(player_ship.position.x, player_ship.position.y);
-        triangle.setOrigin(player_ship.size/2, player_ship.size/2);
-        triangle.setRotation(player_ship.rotation);
-        window.draw(triangle);
+                window.draw(player_ship.triangle);
         
         
         // what I have makes the triangle move if you push up
