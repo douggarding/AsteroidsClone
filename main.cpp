@@ -81,8 +81,8 @@ int main(int argc, const char * argv[]){
 
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
         {
-            player_ship.position.y += cos(player_ship.rotation);
-            player_ship.position.x += sin(player_ship.rotation);
+            player_ship.position.y += -cos(player_ship.rotation );
+            player_ship.position.x += -sin(player_ship.rotation );
         }
         
         window.display();

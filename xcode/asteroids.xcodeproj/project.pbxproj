@@ -34,6 +34,9 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		2016FBF91F716FB500806238 /* bullets.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2016FBF71F716FB500806238 /* bullets.cpp */; };
+		2016FBFC1F716FCE00806238 /* asteroid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2016FBFA1F716FCE00806238 /* asteroid.cpp */; };
+		2016FBFF1F716FDE00806238 /* collisions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2016FBFD1F716FDE00806238 /* collisions.cpp */; };
 		20267A631F7080E2005808B0 /* ship.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 20267A611F7080E2005808B0 /* ship.cpp */; };
 		4F080A9C33394FC0AA5246C2 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7BCB1A4823F48278E76B1E1 /* main.cpp */; };
 /* End PBXBuildFile section */
@@ -65,6 +68,12 @@
 /* Begin PBXFileReference section */
 		11D25681EDF745089AE69EE8 /* CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
 		1A1414A1AB89402BA755C1A7 /* CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		2016FBF71F716FB500806238 /* bullets.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = bullets.cpp; sourceTree = "<group>"; };
+		2016FBF81F716FB500806238 /* bullets.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = bullets.hpp; sourceTree = "<group>"; };
+		2016FBFA1F716FCE00806238 /* asteroid.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = asteroid.cpp; sourceTree = "<group>"; };
+		2016FBFB1F716FCE00806238 /* asteroid.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = asteroid.hpp; sourceTree = "<group>"; };
+		2016FBFD1F716FDE00806238 /* collisions.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = collisions.cpp; sourceTree = "<group>"; };
+		2016FBFE1F716FDE00806238 /* collisions.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = collisions.hpp; sourceTree = "<group>"; };
 		20267A5F1F707E31005808B0 /* world.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = world.cpp; sourceTree = "<group>"; };
 		20267A601F707E31005808B0 /* world.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = world.hpp; sourceTree = "<group>"; };
 		20267A611F7080E2005808B0 /* ship.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ship.cpp; sourceTree = "<group>"; };
@@ -142,6 +151,12 @@
 			children = (
 				7A3B983068C148068D676E60 /* Source Files */,
 				1A1414A1AB89402BA755C1A7 /* CMakeLists.txt */,
+				2016FBF71F716FB500806238 /* bullets.cpp */,
+				2016FBF81F716FB500806238 /* bullets.hpp */,
+				2016FBFA1F716FCE00806238 /* asteroid.cpp */,
+				2016FBFB1F716FCE00806238 /* asteroid.hpp */,
+				2016FBFD1F716FDE00806238 /* collisions.cpp */,
+				2016FBFE1F716FDE00806238 /* collisions.hpp */,
 			);
 			name = asteroids;
 			sourceTree = "<group>";
@@ -222,7 +237,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2016FBFC1F716FCE00806238 /* asteroid.cpp in Sources */,
+				2016FBFF1F716FDE00806238 /* collisions.cpp in Sources */,
 				4F080A9C33394FC0AA5246C2 /* main.cpp in Sources */,
+				2016FBF91F716FB500806238 /* bullets.cpp in Sources */,
 				20267A631F7080E2005808B0 /* ship.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
