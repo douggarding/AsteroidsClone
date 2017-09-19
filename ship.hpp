@@ -27,6 +27,9 @@ public:
     void rotateLeft();
     void thrusters(int width, int height);
     sf::CircleShape getShip();
+    sf::Vector2f getPos();
+    int getRotation();
+    
 };
 
 

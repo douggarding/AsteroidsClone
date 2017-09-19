@@ -99,6 +99,13 @@ sf::CircleShape ship::getShip()
     return triangle;
 }
 
+sf::Vector2f ship::getPos()
+{
+    return position;
+}
 
-
+int ship::getRotation()
+{
+    return rotation;
+}
 
