@@ -23,7 +23,7 @@ int main(int argc, const char * argv[]){
     // on to the next level. We may not want to show the ship initially,
     // but wait a few seconds. It depends, it's mostly a stylistic option.
     // Most of this can/should also be moved to methods/constructors.
-    ship player_ship = ship(20, width/2 - 20, height/2 - 20);
+    ship player_ship = ship(20, width/2 - 10, height/2 - 10);
     
     
     while (window.isOpen())
@@ -39,39 +39,12 @@ int main(int argc, const char * argv[]){
         
         window.clear(sf::Color(44, 33, 68));
         
-                window.draw(player_ship.triangle);
+                window.draw(player_ship.getShip());
         
-        
-        // what I have makes the triangle move if you push up
-        // and rotates it if you push left or right. Try running
-        // it though. It is NOT intuitive. We're going to have to
-        // tinker with it.
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
-        {
-            if (player_ship.rotation <= 0)
-            {
-                player_ship.rotation = 360;
-            }
-            
-            player_ship.rotation -= 1;
-        }
-        
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
-        {
-            if (player_ship.rotation >= 360)
-            {
-                player_ship.rotation = 0;
-            }
-            
-            player_ship.rotation += 1;
+        player_ship.rotateRight();
+        player_ship.rotateLeft();
+        player_ship.thrusters(width, height);
 
-        }
-
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
-        {
-            player_ship.position.y += -cos(player_ship.rotation );
-            player_ship.position.x += -sin(player_ship.rotation );
-        }
         
         window.display();
     }

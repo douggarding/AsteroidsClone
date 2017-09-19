@@ -7,6 +7,8 @@
 //
 
 #include "ship.hpp"
+#include <cmath>
+#define PI 3.14159265
 
 
 ship::ship(int s, int xPos, int yPos){
@@ -32,3 +34,71 @@ sf::CircleShape ship::buildFrame(){
     triangle.setRotation(rotation);
     return triangle;
 }
+
+// what I have makes the triangle move if you push up
+// and rotates it if you push left or right. Try running
+// it though. It is NOT intuitive. We're going to have to
+// tinker with it.
+void ship::rotateRight()
+{
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+    {
+        if (rotation >= 360)
+        {
+            rotation = 0;
+        }
+    
+        rotation += 1;
+    }
+    triangle.setRotation(rotation);
+}
+
+void ship::rotateLeft()
+{
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+    {
+        if (rotation <= 0)
+        {
+            rotation = 360;
+        }
+        
+        rotation -= 1;
+    }
+    triangle.setRotation(rotation);
+}
+
+void ship::thrusters(int width, int height)
+{
+    if (position.x >= width)
+    {
+        position.x = 0;
+    }
+    else if (position.x <= 0)
+    {
+        position.x = width -1;
+    }
+    if (position.y >= height)
+    {
+        position.y = 0;
+    }
+    else if (position.y <= 0)
+    {
+        position.y = height - 1;
+    }
+    
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+    {
+        position.y += -cos(rotation * PI / 180 );
+        position.x += sin(rotation * PI / 180 );
+    }
+    triangle.setPosition(position.x, position.y);
+}
+
+sf::CircleShape ship::getShip()
+{
+    return triangle;
+}
+
+
+
+

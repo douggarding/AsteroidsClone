@@ -11,8 +11,6 @@
 #include <SFML/Graphics.hpp>
 
 class ship{
-public:
-    ship(int size, int xPos, int yPos);
     sf::CircleShape triangle;
     sf::Vector2f position;
     sf::Vector2f velocity; // contains initial velocity(Vo) and acceleration (a)
@@ -21,6 +19,14 @@ public:
     int size;
     
     sf::CircleShape buildFrame();
+    
+public:
+    
+    ship(int size, int xPos, int yPos);
+    void rotateRight();
+    void rotateLeft();
+    void thrusters(int width, int height);
+    sf::CircleShape getShip();
 };
 
 
