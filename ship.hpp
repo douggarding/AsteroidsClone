@@ -8,7 +8,7 @@
 
 #ifndef ship_hpp
 #define ship_hpp
-#include <SFML/Graphics.hpp>
+#include "SFML/Graphics.hpp"
 
 class ship{
     sf::CircleShape triangle;
@@ -29,6 +29,7 @@ public:
     sf::CircleShape getShip();
     sf::Vector2f getPos();
     int getRotation();
+    
     
 };
 

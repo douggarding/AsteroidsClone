@@ -7,9 +7,11 @@
 //
 //
 #include "world.hpp"
-#include <SFML/Graphics.hpp>
+#include "SFML/Graphics.hpp"
 #include "ship.hpp"
 #include <cmath>
+#include "bullets.hpp"
+
 
 int main(int argc, const char * argv[]){
     
@@ -24,7 +26,8 @@ int main(int argc, const char * argv[]){
     // but wait a few seconds. It depends, it's mostly a stylistic option.
     // Most of this can/should also be moved to methods/constructors.
     ship player_ship = ship(20, width/2 - 10, height/2 - 10);
-    
+    sf::Clock clock;
+    std::vector<bullet> bullets;
     
     while (window.isOpen())
     {
@@ -39,12 +42,24 @@ int main(int argc, const char * argv[]){
         
         window.clear(sf::Color(44, 33, 68));
         
-                window.draw(player_ship.getShip());
+        window.draw(player_ship.getShip());
         
         player_ship.rotateRight();
         player_ship.rotateLeft();
         player_ship.thrusters(width, height);
-
+        sf::Time elapsed = clock.getElapsedTime();
+        sf::Int32 msec = elapsed.asMilliseconds();
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && (msec > 20))
+        {
+            bullets.push_back(bullet(player_ship.getPos(), player_ship.getRotation()));
+            clock.restart();
+        }
+        
+        for (int i = 0; i < bullets.size(); i++)
+        {
+            window.draw(bullets[i].getRectangle());
+        }
+        
         
         window.display();
     }
