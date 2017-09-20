@@ -23,6 +23,7 @@ private:
     // Width and height of window/game
     int width;
     int height;
+    int game_lvl;
     ship playerShip;
     std::vector<asteroid> asteroids;
     sf::Clock clock;
@@ -35,6 +36,7 @@ public:
     
     // Creates a starting position that is 30 pixels away from the ship
     sf::Vector2f asteroidStartPosition();
+    void makeAsteroids(std::vector<asteroid>& asteroids, int game_lvl);
     void runWorld();
     void drawBullets(std::vector<bullet>& bullets, sf::RenderWindow& window);
     void destroyBullets(std::vector<bullet>& bullets, int i);

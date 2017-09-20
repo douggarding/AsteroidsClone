@@ -26,14 +26,12 @@ world::world(int w, int h){
     playerShip = ship::ship(20, width/2 - 10, height/2 - 10);
     clock;
     bullets;
+    asteroids;
+    game_lvl = 1;
     
     // Create four level 3 asteroids for start of game
-    for (int i = 0; i < 4; i++){
-        int direction = rand() % 359 + 1;
-        sf::Vector2f startPos = asteroidStartPosition();
-        asteroid rock = asteroid(3, startPos.x, startPos.y, direction, 0.3);
-        asteroids.push_back(rock);
-    }
+    makeAsteroids(asteroids, game_lvl);
+
 }
 
 // Check if bullet collided with an asteroid
@@ -92,6 +90,14 @@ void world::runWorld(){
         // 2 - UPDATE GAME STATE
         ///////////////////////
         
+        // Update level
+        if (asteroids.size() == 0)
+        {
+            game_lvl++;
+            makeAsteroids(asteroids, game_lvl);
+        }
+        
+        
         // Update object locations
         for(auto &element : asteroids){
             element.updatePosition(width, height);
@@ -125,6 +131,7 @@ void world::runWorld(){
                 }
             }
         }
+
         
         // Updates the display
         window.display();
@@ -161,6 +168,17 @@ sf::Vector2f world::asteroidStartPosition(){
     return startPosition;
 }
 
+void world::makeAsteroids(std::vector<asteroid>& asteroids, int game_lvl)
+{
+    
+    for (int i = 0; i < 3 + game_lvl; i++){
+        int direction = rand() % 359 + 1;
+        sf::Vector2f startPos = asteroidStartPosition();
+        asteroid rock = asteroid(3, startPos.x, startPos.y, direction, 0.3);
+        asteroids.push_back(rock);
+    }
+    
+}
 /**
  * I tried doing this as a part of the ship class or the bullet class,
  * but the implementation got too complicated so I left them here.

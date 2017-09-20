@@ -12,3 +12,4 @@
 #include <stdio.h>
 
 #endif /* collisions_hpp */
+
