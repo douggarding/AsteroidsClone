@@ -27,6 +27,9 @@ private:
     std::vector<asteroid> asteroids;
     sf::Clock clock;
     std::vector<bullet> bullets;
+    
+    bool bulletAsteroidCollision(bullet &b, asteroid &a);
+    
 public:
     world(int w, int h);
     

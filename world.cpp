@@ -36,6 +36,19 @@ world::world(int w, int h){
     }
 }
 
+// Check if bullet collided with an asteroid
+bool world::bulletAsteroidCollision(bullet &b, asteroid &a){
+    
+    
+    // get the position of the bullet and asteroid
+    sf::Vector2f bPosition = b.getPosition();
+    sf::Vector2f aPosition = a.getPosition();
+    
+    // Calculate distance between the two using distance formula
+    int distance = sqrt(pow((bPosition.x - aPosition.x), 2) + pow((bPosition.y - aPosition.y), 2));
+    
+    return (distance <= a.getSize());
+}
 
 
 
@@ -74,6 +87,7 @@ void world::runWorld(){
         playerShip.rotateLeft();
         playerShip.thrusters(width, height);
         
+        
         ///////////////////////
         // 2 - UPDATE GAME STATE
         ///////////////////////
@@ -81,6 +95,20 @@ void world::runWorld(){
         // Update object locations
         for(auto &element : asteroids){
             element.updatePosition();
+        }
+        
+        // Detect bullet asteroid collisions
+        for(int i = 0; i < asteroids.size(); i++){
+            for(int j = 0; j < bullets.size(); j++){
+                //Check if each bullet and astroid collide
+                if(bulletAsteroidCollision(bullets[j], asteroids[i])){
+                    
+                    bullets.erase(bullets.begin() + j);
+                    asteroids.erase(asteroids.begin() + i);
+                    i--;
+                    j--;
+                }
+            }
         }
 
         
@@ -124,7 +152,7 @@ void world::runWorld(){
 
 
 /**
- * HELPER METHOD - ASTEROID STARTING POSITION
+ * HELPER METHOD - RANDOM ASTEROID STARTING POSITION
  * Gets two random points within the game window. These two points will be at least
  * 400 pixels away from the position of the ship. This is to prevent an unfair scenario
  * where asteroids spawn so close to the ship that there is no fair opportunity to avoid them.
@@ -147,6 +175,10 @@ sf::Vector2f world::asteroidStartPosition(){
     sf::Vector2f startPosition(xPos, yPos);
     return startPosition;
 }
+
+
+
+
 
 /*
  Say you want your game to run at 60 FPS. That gives you about 16 milliseconds per frame. 

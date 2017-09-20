@@ -78,8 +78,14 @@ void asteroid::drawAsteroid(sf::RenderWindow &window){
     window.draw(circle);
 }
 
+// Gets the asteroid's size
+int asteroid::getSize(){
+    return size;
+}
 
-
+sf::Vector2f asteroid::getPosition(){
+    return position;
+}
 
 // When an astroid is destroid via collision
 void asteroid::destroy(){

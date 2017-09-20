@@ -36,6 +36,10 @@ public:
     void drawAsteroid(sf::RenderWindow &window);
     // Updates the asteroid's position
     void updatePosition();
+    // Gets the asteroid's position
+    sf::Vector2f getPosition();
+    // Gets the asteroid's size
+    int getSize();
 };
 
 #endif /* asteroid_hpp */
