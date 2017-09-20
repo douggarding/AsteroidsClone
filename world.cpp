@@ -41,7 +41,7 @@ bool world::bulletAsteroidCollision(bullet &b, asteroid &a){
     
     
     // get the position of the bullet and asteroid
-    sf::Vector2f bPosition = b.getPosition();
+    sf::Vector2f bPosition = b.getPos();
     sf::Vector2f aPosition = a.getPosition();
     
     // Calculate distance between the two using distance formula

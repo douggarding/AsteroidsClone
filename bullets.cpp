@@ -67,7 +67,14 @@ int bullet::getDistance()
     return distance;
 }
 
-// Gets the asteroid's position
-sf::Vector2f bullet::getPosition(){
-    return position;
+sf::Vector2f bullet::getPos()
+{
+    return rectangle.getPosition();
 }
+
+int bullet::getRotation()
+{
+    return rectangle.getRotation();
+}
+
+

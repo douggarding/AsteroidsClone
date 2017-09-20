@@ -24,8 +24,8 @@ public:
     bullet();
     void move(int width, int height);
     int getDistance();
-    // Gets the asteroid's position
-    sf::Vector2f getPosition();
+    sf::Vector2f getPos();
+    int getRotation();
 };
 
 #endif /* bullets_hpp */
