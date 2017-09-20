@@ -17,7 +17,6 @@
 // Constructs an asteroid of size s (size can be 1, 2, or 3)
 asteroid::asteroid(int lvl, int xPos, int yPos, int dir, float sp){
     level = lvl;
-    direction = dir;
     speed = sp;
     
     if (level == 3)
@@ -27,16 +26,19 @@ asteroid::asteroid(int lvl, int xPos, int yPos, int dir, float sp){
     else
         size = 20;
     
-    position.x = xPos;
-    position.y = yPos;
-    
-    buildFrame();
+    buildFrame(xPos, yPos, dir);
 }
 
 // Creates the frame/shape of an astroid
-void asteroid::buildFrame(){
+void asteroid::buildFrame(int xPos, int yPos, int dir){
     // Initialize the rock
     circle = sf::CircleShape();
+    
+    // Set the direction of the rock
+    circle.setRotation(dir);
+    
+    // Set the position of the rock
+    circle.setPosition(xPos, yPos);
     
     // Set the size of the rock
     circle.setRadius(size);
@@ -48,29 +50,29 @@ void asteroid::buildFrame(){
 }
 
 // Updates the asteroid's position
-void asteroid::updatePosition(){
+void asteroid::updatePosition(int w, int h){
     
     // Keeps the asteroid within the bounds of the game/screen
-    if (position.x >= 1600)
+    if (getPosition().x >= 1600)
     {
-        position.x = 0;
+        circle.setPosition(0, getPosition().y);
     }
-    else if (position.x <= 0)
+    else if (getPosition().x <= 0)
     {
-        position.x = 1600 -1;
+        circle.setPosition(w - 1, getPosition().y);
     }
-    if (position.y >= 1200)
+    if (getPosition().y >= 1200)
     {
-        position.y = 0;
+        circle.setPosition(getPosition().x, 0);
     }
-    else if (position.y <= 0)
+    else if (getPosition().y <= 0)
     {
-        position.y = 1200 - 1;
+        circle.setPosition(getPosition().x, h - 1);
     }
     
-    position.x += -cos(direction * PI / 180 ) * speed;
-    position.y += sin(direction * PI / 180 ) * speed;
-    circle.setPosition(position.x, position.y);
+    float move_x = -cos(getRotation() * PI / 180 ) * speed;
+    float move_y = sin(getRotation() * PI / 180 ) * speed;
+    circle.move(move_x, move_y);
 }
 
 // Draws an astroid to the window
@@ -84,15 +86,12 @@ int asteroid::getSize(){
 }
 
 sf::Vector2f asteroid::getPosition(){
-    return position;
-}
-
-// When an astroid is destroid via collision
-void asteroid::destroy(){
-
-    
+    return circle.getPosition();
 }
 
 
-
+int asteroid::getRotation()
+{
+    return circle.getRotation();
+}
 

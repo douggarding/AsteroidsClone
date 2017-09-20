@@ -55,9 +55,9 @@ void bullet::move(int width, int height)
         rectangle.setPosition(getPos().x, height - 1);
     }
     
-    float y_update = getPos().y - cos(getRotation() * PI / 180 ) * speed;
-    float x_update = getPos().x + sin(getRotation() * PI / 180 ) * speed;
-    rectangle.setPosition(x_update, y_update);
+    float y_update = -cos(getRotation() * PI / 180 ) * speed;
+    float x_update = sin(getRotation() * PI / 180 ) * speed;
+    rectangle.move(x_update, y_update);
     distance +=  speed;
     
 }
@@ -67,14 +67,17 @@ int bullet::getDistance()
     return distance;
 }
 
-sf::Vector2f bullet::getPos()
+sf::Vector2f bullet::getPos() const
 {
     return rectangle.getPosition();
 }
 
-int bullet::getRotation()
+int bullet::getRotation() const
 {
     return rectangle.getRotation();
 }
+
+
+
 
 

@@ -18,21 +18,19 @@ ship::ship(){
 
 ship::ship(int s, int xPos, int yPos){
     size = s;
-    position.x = xPos;
-    position.y = yPos;
     speed.x = 0.0;
     speed.y = 0.0;
-    rotation = 0;
     old_rotation = 0;
     lives = 3;
-    triangle = buildFrame();
+    triangle = buildFrame(xPos, yPos);
     flameShip = buildFlameFrame();
     
 }
 
-sf::ConvexShape ship::buildFrame(){
+sf::ConvexShape ship::buildFrame(int xPos, int yPos){
     // Create the spaceship
     sf::ConvexShape spaceShip;
+    spaceShip.setPosition(xPos, yPos);
     spaceShip.setPointCount(3);
     spaceShip.setPoint(0, sf::Vector2f(0, 0));
     spaceShip.setPoint(1, sf::Vector2f(15, 50));
@@ -75,60 +73,58 @@ void ship::rotateRight()
 {
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
     {
-        if (rotation >= 360)
+        if (rotationGet() >= 360)
         {
-            rotation = 0;
+            triangle.setRotation(0);
         }
-    
-        rotation += 1;
+        triangle.setRotation(rotationGet() + 1);
+        flameShip.setRotation(rotationGet() + 1);
     }
-    triangle.setRotation(rotation);
-    flameShip.setRotation(rotation);
+
 }
 
 void ship::rotateLeft()
 {
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
     {
-        if (rotation <= 0)
+        if (rotationGet() <= 0)
         {
-            rotation = 360;
+            triangle.setRotation(360);
         }
-        
-        rotation -= 1;
+        triangle.setRotation(rotationGet() - 1);
+        flameShip.setRotation(rotationGet() - 1);
     }
-    triangle.setRotation(rotation);
-    flameShip.setRotation(rotation);
+
 }
 
 void ship::thrusters(int width, int height)
 {
-    if (position.x >= width)
+    if (positionGet().x >= width)
     {
-        position.x = 0;
+        triangle.setPosition(0, positionGet().y);
     }
-    else if (position.x <= 0)
+    else if (positionGet().x <= 0)
     {
-        position.x = width -1;
+        triangle.setPosition(width - 1, positionGet().y);
     }
-    if (position.y >= height)
+    if (positionGet().y >= height)
     {
-        position.y = 0;
+        triangle.setPosition(positionGet().x, 0);
     }
-    else if (position.y <= 0)
+    else if (positionGet().y <= 0)
     {
-        position.y = height - 1;
+        triangle.setPosition(positionGet().x, height - 1);
     }
     
-    position.y +=  speed.y / 20;
-    position.x +=  speed.x / 20;
+    triangle.move( speed.x / 20, speed.y / 20);
     
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
     {
-        position.y += -cos(rotation * PI / 180 ) / 20;
-        position.x += sin(rotation * PI / 180 ) / 20;
-        speed.y += -cos(rotation * PI / 180 ) / 15;
-        speed.x += sin(rotation * PI / 180 ) / 15;
+        float move_y = -cos(rotationGet() * PI / 180 ) / 20;
+        float move_x = sin(rotationGet() * PI / 180 ) / 20;
+        triangle.move(move_x, move_y);
+        speed.y += -cos(rotationGet() * PI / 180 ) / 15;
+        speed.x += sin(rotationGet() * PI / 180 ) / 15;
         if (speed.x > 20)
         {
             speed.x = 20;
@@ -147,14 +143,10 @@ void ship::thrusters(int width, int height)
             speed.y = -20;
         }
         
-        old_rotation = rotation;
+        old_rotation = rotationGet();
         
     }
-    
-
-    
-    triangle.setPosition(position.x, position.y);
-    flameShip.setPosition(position.x, position.y);
+    flameShip.setPosition(positionGet().x, positionGet().y);
 }
 
 void ship::drawShip(sf::RenderWindow &window){
@@ -170,13 +162,16 @@ void ship::drawShip(sf::RenderWindow &window){
     }
 }
 
-sf::Vector2f ship::getPos()
+sf::Vector2f ship::positionGet() const
 {
-    return position;
+    return triangle.getPosition();
 }
 
-int ship::getRotation()
+int ship::rotationGet() const
 {
-    return rotation;
+    return triangle.getRotation();
 }
+
+
+
 

@@ -94,21 +94,7 @@ void world::runWorld(){
         
         // Update object locations
         for(auto &element : asteroids){
-            element.updatePosition();
-        }
-        
-        // Detect bullet asteroid collisions
-        for(int i = 0; i < asteroids.size(); i++){
-            for(int j = 0; j < bullets.size(); j++){
-                //Check if each bullet and astroid collide
-                if(bulletAsteroidCollision(bullets[j], asteroids[i])){
-                    
-                    bullets.erase(bullets.begin() + j);
-                    asteroids.erase(asteroids.begin() + i);
-                    i--;
-                    j--;
-                }
-            }
+            element.updatePosition(width, height);
         }
 
         
@@ -123,22 +109,20 @@ void world::runWorld(){
         }
         
         // Draw bullets
-        sf::Time elapsed = clock.getElapsedTime();
-        sf::Int32 msec = elapsed.asMilliseconds();
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && (msec > 100))
-        {
-            bullets.push_back(bullet(playerShip.getPos(), playerShip.getRotation()));
-            clock.restart();
-        }
-        
-        for (int i = 0; i < bullets.size(); i++)
-        {
-            bullets[i].move(width, height);
-            window.draw(bullets[i].getRectangle());
-            if (bullets[i].getDistance() > 600 )// || collision)
-            {
-                bullets.erase (bullets.begin() + i);
-                i--;
+        makeBullets(bullets, clock, playerShip); // ship method
+        drawBullets(bullets, window); // world method
+
+        // Detect bullet asteroid collisions
+        for(int i = 0; i < asteroids.size(); i++){
+            for(int j = 0; j < bullets.size(); j++){
+                //Check if each bullet and astroid collide
+                if(bulletAsteroidCollision(bullets[j], asteroids[i])){
+                    
+                    bullets.erase(bullets.begin() + j);
+                    asteroids.erase(asteroids.begin() + i);
+                    i--;
+                    j--;
+                }
             }
         }
         
@@ -169,7 +153,7 @@ sf::Vector2f world::asteroidStartPosition(){
         yPos = rand() % height;
         
         // Distance formula to calculate distance between this coordinate and the ship coordinate
-        distance = sqrt(pow((xPos - playerShip.getPos().x), 2) + pow((yPos - playerShip.getPos().y), 2));
+        distance = sqrt(pow((xPos - playerShip.positionGet().x), 2) + pow((yPos - playerShip.positionGet().y), 2));
         
     } while (distance <= 400);
     
@@ -177,8 +161,39 @@ sf::Vector2f world::asteroidStartPosition(){
     return startPosition;
 }
 
+/**
+ * I tried doing this as a part of the ship class or the bullet class,
+ * but the implementation got too complicated so I left them here.
+ */
+void world::makeBullets(std::vector<bullet>& bullets, sf::Clock& clock, const ship& playerShip)
+{
+    sf::Time elapsed = clock.getElapsedTime();
+    sf::Int32 msec = elapsed.asMilliseconds();
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && (msec > 100))
+    {
+        bullets.push_back(bullet(playerShip.positionGet(), playerShip.rotationGet()));
+        clock.restart();
+    }
+}
 
+void world::drawBullets(std::vector<bullet>& bullets, sf::RenderWindow& window)
+{
+    for (int i = 0; i < bullets.size(); i++)
+    {
+        bullets[i].move(width, height);
+        window.draw(bullets[i].getRectangle());
+        destroyBullets(bullets, i);
+    }
+}
 
+void world::destroyBullets(std::vector<bullet>& bullets, int i)
+{
+    if (bullets[i].getDistance() > 600 )
+    {
+        bullets.erase (bullets.begin() + i);
+        i--;
+    }
+}
 
 
 /*
