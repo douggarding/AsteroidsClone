@@ -16,7 +16,7 @@ bullet::bullet(sf::Vector2f pos, int rot)
     position.y = pos.y;
     rotation = rot;
     rectangle = buildBullet();
-    speed = 1.1;
+    speed = 1.3;
     distance = 0;
 
 }
