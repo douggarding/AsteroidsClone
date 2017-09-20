@@ -94,6 +94,7 @@ void world::runWorld(){
         if (asteroids.size() == 0)
         {
             game_lvl++;
+            drawLevel(window, game_lvl); // doesn't even make it to the screen. Need it to linger. display or clock?
             makeAsteroids(asteroids, game_lvl);
         }
         
@@ -213,9 +214,26 @@ void world::destroyBullets(std::vector<bullet>& bullets, int i)
     }
 }
 
+void world::drawLevel(sf::RenderWindow& window, int game_lvl)
+{
+    sf::Text text;
+    sf::Font font;
+    
+    text.setFont(font);
+    
+    text.setString("Hello world");
+    
+    text.setCharacterSize(24);
+    
+    text.setFillColor(sf::Color::Red);
+    
+    text.setStyle(sf::Text::Bold | sf::Text::Underlined);
+
+    window.draw(text);
+}
 
 /*
- Say you want your game to run at 60 FPS. That gives you about 16 milliseconds per frame. 
+ Say you want your game to run at 60 FPS. That gives you about 16 milliseconds per frame.
  As long as you can reliably do all of your game processing and rendering in less than 
  that time, you can run at a steady frame rate. All you do is process the frame and then 
  wait until it’s time for the next one
