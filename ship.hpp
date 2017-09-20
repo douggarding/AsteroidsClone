@@ -13,8 +13,9 @@
 class ship{
     sf::ConvexShape triangle;
     sf::Vector2f position;
-    sf::Vector2f velocity; // contains initial velocity(Vo) and acceleration (a)
+    sf::Vector2f speed; // contains initial velocity(Vo) in x and y directions
     int rotation;
+    int old_rotation;
     int lives;
     int size;
     
@@ -31,6 +32,7 @@ public:
     int getRotation();
     void updatePosition();
     void drawShip(sf::RenderWindow &window);
+    
     
 };
 

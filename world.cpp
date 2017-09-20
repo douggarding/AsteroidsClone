@@ -23,6 +23,8 @@ world::world(int w, int h){
     width = w;
     height = h;
     playerShip = ship::ship(20, width/2 - 10, height/2 - 10);
+    clock;
+    bullets;
     
     // Create four level 3 asteroids for start of game
     for (int i = 0; i < 4; i++){
@@ -43,7 +45,7 @@ void world::runWorld(){
     sf::ContextSettings settings;
     settings.antialiasingLevel = 8;
     sf::RenderWindow window(sf::VideoMode(width, height), "Asteroids!", sf::Style::Close, settings);
-    
+
     
     //
     // START GAME LOOP!!
@@ -90,6 +92,20 @@ void world::runWorld(){
         // Draw asteroids
         for(int i = 0; i < asteroids.size(); i++){
             asteroids[i].drawAsteroid(window);
+        }
+        
+        // Draw bullets
+        sf::Time elapsed = clock.getElapsedTime();
+        sf::Int32 msec = elapsed.asMilliseconds();
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && (msec > 100))
+        {
+            bullets.push_back(bullet(playerShip.getPos(), playerShip.getRotation()));
+            clock.restart();
+        }
+        
+        for (int i = 0; i < bullets.size(); i++)
+        {
+            window.draw(bullets[i].getRectangle());
         }
         
         // Updates the display
