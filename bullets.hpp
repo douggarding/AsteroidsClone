@@ -13,19 +13,19 @@
 
 class bullet{
     sf::RectangleShape rectangle;
-    sf::Vector2f position;
-    int rotation;
     int distance;
     float speed;
 
-    sf::RectangleShape buildBullet();
+    sf::RectangleShape buildBullet(sf::Vector2f pos, int rot);
     
 public:
     bullet(sf::Vector2f pos, int rot);
     sf::RectangleShape getRectangle();
     bullet();
-    void velocity(int width, int height);
+    void move(int width, int height);
     int getDistance();
+    sf::Vector2f getPos();
+    int getRotation();
 };
 
 #endif /* bullets_hpp */

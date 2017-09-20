@@ -12,22 +12,20 @@
 
 bullet::bullet(sf::Vector2f pos, int rot)
 {
-    position.x = pos.x;
-    position.y = pos.y;
-    rotation = rot;
-    rectangle = buildBullet();
+
+    rectangle = buildBullet(pos, rot);
     speed = 1.3;
     distance = 0;
 
 }
 
-sf::RectangleShape bullet::buildBullet()
+sf::RectangleShape bullet::buildBullet(sf::Vector2f pos, int rot)
 {
-    sf::RectangleShape rectangle(sf::Vector2f(10, 5));
-    rectangle.setFillColor(sf::Color::White);
-    rectangle.setPosition(position.x, position.y);
-    rectangle.setOrigin(-30, 2);
-    rectangle.setRotation(rotation - 90);
+    sf::RectangleShape rectangle(sf::Vector2f(5, 15));
+    rectangle.setFillColor(sf::Color::Green);
+    rectangle.setPosition(pos.x, pos.y);
+    rectangle.setOrigin(2, 25);
+    rectangle.setRotation(rot);
     return rectangle;
 }
 
@@ -37,30 +35,30 @@ sf::RectangleShape bullet::getRectangle()
 }
 
 
-void bullet::velocity(int width, int height)
+void bullet::move(int width, int height)
 {
-    if (position.x >= width)
+    if (getPos().x >= width)
     {
-        position.x = 0;
+        rectangle.setPosition(0, getPos().y);
     }
-    else if (position.x <= 0)
+    else if (getPos().x <= 0)
     {
-        position.x = width -1;
+        rectangle.setPosition(width -1, getPos().y);
     }
-    if (position.y >= height)
+    if (getPos().y >= height)
     {
-        position.y = 0;
+        rectangle.setPosition(getPos().x, 0);
+
     }
-    else if (position.y <= 0)
+    else if (getPos().y <= 0)
     {
-        position.y = height - 1;
+        rectangle.setPosition(getPos().x, height - 1);
     }
     
-    position.y +=  -cos(rotation * PI / 180 ) * speed;
-    position.x +=  sin(rotation * PI / 180 ) * speed;
-
-    rectangle.setPosition(position.x, position.y);
-    distance += (pow(cos(rotation * PI / 180 ), 2) + pow(sin(rotation * PI / 180 ), 2)) * speed;
+    float y_update = getPos().y - cos(getRotation() * PI / 180 ) * speed;
+    float x_update = getPos().x + sin(getRotation() * PI / 180 ) * speed;
+    rectangle.setPosition(x_update, y_update);
+    distance +=  speed;
     
 }
 
@@ -68,3 +66,15 @@ int bullet::getDistance()
 {
     return distance;
 }
+
+sf::Vector2f bullet::getPos()
+{
+    return rectangle.getPosition();
+}
+
+int bullet::getRotation()
+{
+    return rectangle.getRotation();
+}
+
+
