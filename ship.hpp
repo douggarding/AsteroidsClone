@@ -8,13 +8,14 @@
 
 #ifndef ship_hpp
 #define ship_hpp
-#include "SFML/Graphics.hpp"
+#include <SFML/Graphics.hpp>
 
 class ship{
     sf::CircleShape triangle;
     sf::Vector2f position;
-    sf::Vector2f velocity; // contains initial velocity(Vo) and acceleration (a)
+    sf::Vector2f speed; // contains initial velocity(Vo) in x and y directions
     int rotation;
+    int old_rotation;
     int lives;
     int size;
     

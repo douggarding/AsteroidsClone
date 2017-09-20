@@ -14,6 +14,7 @@ bullet::bullet(sf::Vector2f pos, int rot)
     position.y = pos.y;
     rotation = rot;
     rectangle = buildBullet();
+    distance = 0;
 
 }
 
@@ -22,8 +23,8 @@ sf::RectangleShape bullet::buildBullet()
     sf::RectangleShape rectangle(sf::Vector2f(10, 5));
     rectangle.setFillColor(sf::Color::White);
     rectangle.setPosition(position.x, position.y);
-    rectangle.setOrigin(5, 5);
-    rectangle.setRotation(rotation);
+    rectangle.setOrigin(-5, -7);
+    rectangle.setRotation(rotation - 90);
     return rectangle;
 }
 

@@ -25,6 +25,8 @@ private:
     int height;
     ship playerShip;
     std::vector<asteroid> asteroids;
+    sf::Clock clock;
+    std::vector<bullet> bullets;
 public:
     world(int w, int h);
     

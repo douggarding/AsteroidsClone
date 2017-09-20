@@ -15,12 +15,14 @@ class bullet{
     sf::RectangleShape rectangle;
     sf::Vector2f position;
     int rotation;
+    int distance;
     
     sf::RectangleShape buildBullet();
     
 public:
     bullet(sf::Vector2f pos, int rot);
     sf::RectangleShape getRectangle();
+    bullet();
 };
 
 #endif /* bullets_hpp */

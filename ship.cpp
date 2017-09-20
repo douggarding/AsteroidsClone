@@ -20,9 +20,10 @@ ship::ship(int s, int xPos, int yPos){
     size = s;
     position.x = xPos;
     position.y = yPos;
-    velocity.x = 0;
-    velocity.y = 0; // contains initial velocity(Vo) and acceleration (a)
+    speed.x = 0.0;
+    speed.y = 0.0;
     rotation = 0;
+    old_rotation = 0;
     lives = 3;
     triangle = buildFrame();
     
@@ -91,11 +92,39 @@ void ship::thrusters(int width, int height)
         position.y = height - 1;
     }
     
+    position.y +=  speed.y / 20;
+    position.x +=  speed.x / 20;
+    
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
     {
-        position.y += -cos(rotation * PI / 180 );
-        position.x += sin(rotation * PI / 180 );
+        position.y += -cos(rotation * PI / 180 ) / 20;
+        position.x += sin(rotation * PI / 180 ) / 20;
+        speed.y += -cos(rotation * PI / 180 ) / 15;
+        speed.x += sin(rotation * PI / 180 ) / 15;
+        if (speed.x > 20)
+        {
+            speed.x = 20;
+        }
+        else if(speed.x < -20)
+        {
+            speed.x = -20;
+        }
+        
+        if (speed.y > 20)
+        {
+            speed.y = 20;
+        }
+        else if (speed.y < -20)
+        {
+            speed.y = -20;
+        }
+        
+        old_rotation = rotation;
+        
     }
+    
+
+    
     triangle.setPosition(position.x, position.y);
 }
 
