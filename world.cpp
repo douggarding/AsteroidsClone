@@ -10,6 +10,7 @@
 #include <cmath> // for the power and square root functions
 #include <time.h> // uses this for the seed for the random number
 #include <SFML/Graphics.hpp>
+#include <vector> // for bullet and asteroids vectors
 #include "world.hpp"
 #include "ship.hpp"
 #include "asteroid.hpp"
@@ -105,7 +106,12 @@ void world::runWorld(){
         
         for (int i = 0; i < bullets.size(); i++)
         {
+            bullets[i].velocity(width, height);
             window.draw(bullets[i].getRectangle());
+            if (bullets[i].getDistance() > 600 )// || collision)
+            {
+                bullets.erase (bullets.begin() + i);
+            }
         }
         
         // Updates the display
