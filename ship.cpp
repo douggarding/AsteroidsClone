@@ -157,13 +157,6 @@ void ship::thrusters(int width, int height)
     flameShip.setPosition(position.x, position.y);
 }
 
-void ship::updatePosition(){
-    position.x += 1;
-    position.y += 1;
-    triangle.setPosition(position.x, position.y);
-    flameShip.setPosition(position.x, position.y);
-}
-
 void ship::drawShip(sf::RenderWindow &window){
     
     // If they up key is being pressed, flicker the flame

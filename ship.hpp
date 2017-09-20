@@ -31,7 +31,6 @@ public:
     sf::CircleShape getShip();
     sf::Vector2f getPos();
     int getRotation();
-    void updatePosition();
     void drawShip(sf::RenderWindow &window);
     
     

@@ -82,7 +82,6 @@ void world::runWorld(){
         for(auto &element : asteroids){
             element.updatePosition();
         }
-        // playerShip.updatePosition();
 
         
         ///////////////////////
