@@ -16,7 +16,7 @@ class bullet{
     int rotation;
     
 public:
-    bullet(
+    bullet();
 };
 
 #endif /* bullets_hpp */

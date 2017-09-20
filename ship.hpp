@@ -21,7 +21,7 @@ class ship{
     sf::CircleShape buildFrame();
     
 public:
-    
+    ship();
     ship(int size, int xPos, int yPos);
     void rotateRight();
     void rotateLeft();
@@ -29,6 +29,8 @@ public:
     sf::CircleShape getShip();
     sf::Vector2f getPos();
     int getRotation();
+    void updatePosition();
+    void drawShip(sf::RenderWindow &window);
     
 };
 

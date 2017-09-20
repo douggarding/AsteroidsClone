@@ -10,6 +10,11 @@
 #include <cmath>
 #define PI 3.14159265
 
+// Default constructor
+ship::ship(){
+    
+}
+
 
 ship::ship(int s, int xPos, int yPos){
     size = s;
@@ -94,9 +99,14 @@ void ship::thrusters(int width, int height)
     triangle.setPosition(position.x, position.y);
 }
 
-sf::CircleShape ship::getShip()
-{
-    return triangle;
+void ship::updatePosition(){
+    position.x += 1;
+    position.y += 1;
+    triangle.setPosition(position.x, position.y);
+}
+
+void ship::drawShip(sf::RenderWindow &window){
+    window.draw(triangle);
 }
 
 sf::Vector2f ship::getPos()
