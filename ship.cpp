@@ -26,18 +26,39 @@ ship::ship(int s, int xPos, int yPos){
     old_rotation = 0;
     lives = 3;
     triangle = buildFrame();
+    flameShip = buildFlameFrame();
     
 }
 
 sf::ConvexShape ship::buildFrame(){
+    // Create the spaceship
+    sf::ConvexShape spaceShip;
+    spaceShip.setPointCount(3);
+    spaceShip.setPoint(0, sf::Vector2f(0, 0));
+    spaceShip.setPoint(1, sf::Vector2f(15, 50));
+    spaceShip.setPoint(2, sf::Vector2f(-15, 50));
+    spaceShip.setOrigin(0, 25);
+    spaceShip.setFillColor(sf::Color::Transparent);
+    spaceShip.setOutlineThickness(3);
+    spaceShip.setOutlineColor(sf::Color::White);
+    
+    return spaceShip;
+}
+
+// Creates a space ship with a flame
+sf::ConvexShape ship::buildFlameFrame(){
     
     // Create the spaceship
     sf::ConvexShape spaceShip;
-    spaceShip.setPointCount(5);
-    spaceShip.setPoint(0, sf::Vector2f(1, 0));
+    spaceShip.setPointCount(7);
+    spaceShip.setPoint(0, sf::Vector2f(0, 0));
     spaceShip.setPoint(1, sf::Vector2f(15, 50));
-    spaceShip.setPoint(2, sf::Vector2f(-15, 50));
-    spaceShip.setPoint(3, sf::Vector2f(-1, 0));
+    spaceShip.setPoint(2, sf::Vector2f(10, 50));
+    spaceShip.setPoint(3, sf::Vector2f(0, 65));
+    spaceShip.setPoint(4, sf::Vector2f(-10, 50));
+    spaceShip.setPoint(5, sf::Vector2f(10, 50));
+    spaceShip.setPoint(6, sf::Vector2f(-15, 50));
+    
     spaceShip.setOrigin(0, 25);
     spaceShip.setFillColor(sf::Color::Transparent);
     spaceShip.setOutlineThickness(3);
@@ -62,6 +83,7 @@ void ship::rotateRight()
         rotation += 1;
     }
     triangle.setRotation(rotation);
+    flameShip.setRotation(rotation);
 }
 
 void ship::rotateLeft()
@@ -76,6 +98,7 @@ void ship::rotateLeft()
         rotation -= 1;
     }
     triangle.setRotation(rotation);
+    flameShip.setRotation(rotation);
 }
 
 void ship::thrusters(int width, int height)
@@ -131,16 +154,27 @@ void ship::thrusters(int width, int height)
 
     
     triangle.setPosition(position.x, position.y);
+    flameShip.setPosition(position.x, position.y);
 }
 
 void ship::updatePosition(){
     position.x += 1;
     position.y += 1;
     triangle.setPosition(position.x, position.y);
+    flameShip.setPosition(position.x, position.y);
 }
 
 void ship::drawShip(sf::RenderWindow &window){
-    window.draw(triangle);
+    
+    // If they up key is being pressed, flicker the flame
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)){
+        window.draw(flameShip);
+    }
+        
+    // If the up key isn't being pressed, just draw the ship
+    else{
+        window.draw(triangle);
+    }
 }
 
 sf::Vector2f ship::getPos()
