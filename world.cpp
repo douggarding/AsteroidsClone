@@ -76,8 +76,8 @@ void world::runWorld(){
         ///////////////////////
         
         // Update object locations
-        for(int i = 0; i < asteroids.size(); i++){
-            asteroids[i].updatePosition();
+        for(auto &element : asteroids){
+            element.updatePosition();
         }
         // playerShip.updatePosition();
 

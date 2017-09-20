@@ -11,14 +11,14 @@
 #include <SFML/Graphics.hpp>
 
 class ship{
-    sf::CircleShape triangle;
+    sf::ConvexShape triangle;
     sf::Vector2f position;
     sf::Vector2f velocity; // contains initial velocity(Vo) and acceleration (a)
     int rotation;
     int lives;
     int size;
     
-    sf::CircleShape buildFrame();
+    sf::ConvexShape buildFrame();
     
 public:
     ship();

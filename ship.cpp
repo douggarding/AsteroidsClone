@@ -28,16 +28,21 @@ ship::ship(int s, int xPos, int yPos){
     
 }
 
-sf::CircleShape ship::buildFrame(){
-    sf::CircleShape triangle(size, 3);
-    triangle.setRadius(20);
-    triangle.setFillColor(sf::Color::Black);
-    triangle.setOutlineThickness(-3);
-    triangle.setOutlineColor(sf::Color::White);
-    triangle.setPosition(position.x, position.y);
-    triangle.setOrigin(size/2, size/2);
-    triangle.setRotation(rotation);
-    return triangle;
+sf::ConvexShape ship::buildFrame(){
+    
+    // Create the spaceship
+    sf::ConvexShape spaceShip;
+    spaceShip.setPointCount(5);
+    spaceShip.setPoint(0, sf::Vector2f(1, 0));
+    spaceShip.setPoint(1, sf::Vector2f(15, 50));
+    spaceShip.setPoint(2, sf::Vector2f(-15, 50));
+    spaceShip.setPoint(3, sf::Vector2f(-1, 0));
+    spaceShip.setOrigin(0, 25);
+    spaceShip.setFillColor(sf::Color::Transparent);
+    spaceShip.setOutlineThickness(3);
+    spaceShip.setOutlineColor(sf::Color::White);
+    
+    return spaceShip;
 }
 
 // what I have makes the triangle move if you push up
