@@ -12,6 +12,7 @@
 
 class ship{
     sf::ConvexShape triangle;
+    sf::ConvexShape flameShip;
     sf::Vector2f position;
     sf::Vector2f speed; // contains initial velocity(Vo) in x and y directions
     int rotation;
@@ -20,7 +21,7 @@ class ship{
     int size;
     
     sf::ConvexShape buildFrame();
-    
+    sf::ConvexShape buildFlameFrame();
 public:
     ship();
     ship(int size, int xPos, int yPos);
