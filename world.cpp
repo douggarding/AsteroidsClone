@@ -133,11 +133,12 @@ void world::runWorld(){
         
         for (int i = 0; i < bullets.size(); i++)
         {
-            bullets[i].velocity(width, height);
+            bullets[i].move(width, height);
             window.draw(bullets[i].getRectangle());
             if (bullets[i].getDistance() > 600 )// || collision)
             {
                 bullets.erase (bullets.begin() + i);
+                i--;
             }
         }
         
