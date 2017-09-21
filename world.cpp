@@ -67,6 +67,15 @@ void world::runWorld(){
         playerShip.thrusters(width, height);
         
         
+        sf::Time elapsed = clock.getElapsedTime();
+        sf::Int32 msec = elapsed.asMilliseconds();
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && (msec > 100))
+        {
+            bullet::makeBullets(bullets, playerShip);
+            clock.restart();
+        }
+        
+        
         ///////////////////////
         // 2 - UPDATE GAME STATE
         ///////////////////////
@@ -94,7 +103,9 @@ void world::runWorld(){
                     
                     bullets.erase(bullets.begin() + j);
                     asteroids.erase(asteroids.begin() + i);
-                    i--;
+                    if(i > 0){
+                        i--;
+                    }
                     j--;
                 }
             }
@@ -113,7 +124,15 @@ void world::runWorld(){
         for(auto &element : asteroids){
             element.updatePosition(width, height);
         }
-
+        
+        // Update bullet locations
+        for(auto &element : bullets){
+            element.updatePosition(width, height);
+        }
+        
+        // Destroy old bullets
+        bullet::destroyBullets(bullets);
+        
         
         ///////////////////////
         // 3 - RENDER THE GAME
@@ -123,13 +142,14 @@ void world::runWorld(){
         playerShip.drawShip(window);
         
         // Draw asteroids
-        for(int i = 0; i < asteroids.size(); i++){
-            asteroids[i].drawAsteroid(window);
+        for(auto element : asteroids){
+            element.drawAsteroid(window);
         }
         
         // Draw bullets
-        makeBullets(bullets, clock, playerShip); // ship method
-        drawBullets(bullets, window); // world method
+        for(auto element : bullets){
+            element.drawBullet(window);
+        }
 
         // Draw lives
         playerShip.drawLives(window);
@@ -170,43 +190,6 @@ sf::Vector2f world::asteroidStartPosition(){
 }
 
 
-
-
-
-
-/**
- * I tried doing this as a part of the ship class or the bullet class,
- * but the implementation got too complicated so I left them here.
- */
-void world::makeBullets(std::vector<bullet>& bullets, sf::Clock& clock, const ship& playerShip)
-{
-    sf::Time elapsed = clock.getElapsedTime();
-    sf::Int32 msec = elapsed.asMilliseconds();
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && (msec > 100))
-    {
-        bullets.push_back(bullet(playerShip.getPosition(), playerShip.rotationGet()));
-        clock.restart();
-    }
-}
-
-void world::drawBullets(std::vector<bullet>& bullets, sf::RenderWindow& window)
-{
-    for (int i = 0; i < bullets.size(); i++)
-    {
-        bullets[i].move(width, height);
-        window.draw(bullets[i].getRectangle());
-        destroyBullets(bullets, i);
-    }
-}
-
-void world::destroyBullets(std::vector<bullet>& bullets, int i)
-{
-    if (bullets[i].getDistance() > 600 )
-    {
-        bullets.erase (bullets.begin() + i);
-        i--;
-    }
-}
 
 void world::drawLevel(sf::RenderWindow& window, int game_lvl)
 {
