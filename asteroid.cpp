@@ -44,7 +44,6 @@ void asteroid::buildFrame(int xPos, int yPos, int dir){
     circle.setRadius(size);
     circle.setFillColor(sf::Color::Transparent);
     circle.setOutlineThickness(2);
-    circle.setPosition(position.x, position.y);
     circle.setOrigin(size/2, size/2);
     
 }
@@ -98,4 +97,8 @@ int asteroid::getRotation()
 int asteroid::getRadius()
 {
     return circle.getRadius();
+}
+
+int asteroid::getLevel(){
+    return level;
 }

@@ -23,3 +23,17 @@ bool collisions::bulletAsteroid(bullet &b, asteroid &a){
     
     return (distance <= (a.getRadius() + b.getSize().x));
 }
+
+
+// Check if ship has collided with an asteroid
+bool collisions::shipAsteroid(ship &s, asteroid &a){
+    
+    // get the position of the ship and asteroid
+    sf::Vector2f sPosition = s.getPosition();
+    sf::Vector2f aPosition = a.getPosition();
+    
+    // Calculate distance between the two using distance formula
+    int distance = sqrt(pow((sPosition.x - aPosition.x), 2) + pow((sPosition.y - aPosition.y), 2));
+    
+    return (distance <= (a.getRadius() + s.getSize()));
+}

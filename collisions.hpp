@@ -18,6 +18,8 @@ class collisions{
 public:
     // Detects a collision between an Asteroid and a Bullet
     static bool bulletAsteroid(bullet &b, asteroid &a);
+    // Detects a collision between an Asteroid and a Bullet
+    static bool shipAsteroid(ship &s, asteroid &a);
 };
 
 

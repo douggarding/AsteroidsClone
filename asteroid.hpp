@@ -17,7 +17,6 @@ private:
     int size;
     int level;
     float speed;
-    sf::Vector2f position;
     sf::CircleShape circle;
     
     
@@ -40,6 +39,7 @@ public:
     // Gets the asteroid's rotation
     int getRotation();
     int getRadius();
+    int getLevel();
 };
 
 #endif /* asteroid_hpp */

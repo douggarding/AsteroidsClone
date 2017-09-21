@@ -99,21 +99,21 @@ void ship::rotateLeft()
 
 void ship::thrusters(int width, int height)
 {
-    if (positionGet().x >= width)
+    if (getPosition().x >= width)
     {
-        triangle.setPosition(0, positionGet().y);
+        triangle.setPosition(0, getPosition().y);
     }
-    else if (positionGet().x <= 0)
+    else if (getPosition().x <= 0)
     {
-        triangle.setPosition(width - 1, positionGet().y);
+        triangle.setPosition(width - 1, getPosition().y);
     }
-    if (positionGet().y >= height)
+    if (getPosition().y >= height)
     {
-        triangle.setPosition(positionGet().x, 0);
+        triangle.setPosition(getPosition().x, 0);
     }
-    else if (positionGet().y <= 0)
+    else if (getPosition().y <= 0)
     {
-        triangle.setPosition(positionGet().x, height - 1);
+        triangle.setPosition(getPosition().x, height - 1);
     }
     
     triangle.move( speed.x / 20, speed.y / 20);
@@ -146,7 +146,7 @@ void ship::thrusters(int width, int height)
         old_rotation = rotationGet();
         
     }
-    flameShip.setPosition(positionGet().x, positionGet().y);
+    flameShip.setPosition(getPosition().x, getPosition().y);
 }
 
 void ship::drawShip(sf::RenderWindow& window){
@@ -162,7 +162,7 @@ void ship::drawShip(sf::RenderWindow& window){
     }
 }
 
-sf::Vector2f ship::positionGet() const
+sf::Vector2f ship::getPosition() const
 {
     return triangle.getPosition();
 }
@@ -170,6 +170,10 @@ sf::Vector2f ship::positionGet() const
 int ship::rotationGet() const
 {
     return triangle.getRotation();
+}
+
+int ship::getSize(){
+    return size;
 }
 
 void ship::drawLives(sf::RenderWindow& window)

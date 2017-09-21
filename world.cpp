@@ -85,6 +85,13 @@ void world::runWorld(){
                 //Check if each bullet and astroid collide
                 if(collisions::bulletAsteroid(bullets[j], asteroids[i])){
                     
+                    // Spawn smaller asteroids if destroyed asteroid was large enough
+                    asteroid tempAst = asteroids[i];
+                    int asteroidLevel = tempAst.getLevel();
+                    if(asteroidLevel > 1){
+                        makeAsteroids(asteroids, game_lvl, asteroidLevel-1, tempAst.getPosition());
+                    }
+                    
                     bullets.erase(bullets.begin() + j);
                     asteroids.erase(asteroids.begin() + i);
                     i--;
@@ -93,7 +100,16 @@ void world::runWorld(){
             }
         }
         
-        // Update object locations
+        // Detect ship asteroid collisions
+        for (int i = 0; i < asteroids.size(); i++){
+            // Check if asteroid has collided with ship
+            if(collisions::shipAsteroid(playerShip, asteroids[i])){
+                
+            }
+        }
+        
+        
+        // Update astroid locations
         for(auto &element : asteroids){
             element.updatePosition(width, height);
         }
@@ -102,8 +118,10 @@ void world::runWorld(){
         ///////////////////////
         // 3 - RENDER THE GAME
         ///////////////////////
+        
         // Draw ship
         playerShip.drawShip(window);
+        
         // Draw asteroids
         for(int i = 0; i < asteroids.size(); i++){
             asteroids[i].drawAsteroid(window);
@@ -143,7 +161,7 @@ sf::Vector2f world::asteroidStartPosition(){
         yPos = rand() % height;
         
         // Distance formula to calculate distance between this coordinate and the ship coordinate
-        distance = sqrt(pow((xPos - playerShip.positionGet().x), 2) + pow((yPos - playerShip.positionGet().y), 2));
+        distance = sqrt(pow((xPos - playerShip.getPosition().x), 2) + pow((yPos - playerShip.getPosition().y), 2));
         
     } while (distance <= 400);
     
@@ -151,17 +169,27 @@ sf::Vector2f world::asteroidStartPosition(){
     return startPosition;
 }
 
-void world::makeAsteroids(std::vector<asteroid>& asteroids, int game_lvl)
+void world::makeAsteroids(std::vector<asteroid>& asteroids, int game_lvlff)
 {
-    
-    for (int i = 0; i < 3 + game_lvl; i++){
+    for (int i = 0; i < 2 + game_lvl; i++){
         int direction = rand() % 359 + 1;
         sf::Vector2f startPos = asteroidStartPosition();
         asteroid rock = asteroid(3, startPos.x, startPos.y, direction, 0.3);
         asteroids.push_back(rock);
     }
-    
 }
+
+void world::makeAsteroids(std::vector<asteroid>& asteroids, int game_lvl, int ast_lvl, sf::Vector2f startPos){
+    for (int i = 0; i < 2 + game_lvl; i++){
+        int direction = rand() % 359 + 1;
+        asteroid rock = asteroid(ast_lvl, startPos.x, startPos.y, direction, 0.3);
+        asteroids.push_back(rock);
+    }
+}
+
+
+
+
 /**
  * I tried doing this as a part of the ship class or the bullet class,
  * but the implementation got too complicated so I left them here.
@@ -172,7 +200,7 @@ void world::makeBullets(std::vector<bullet>& bullets, sf::Clock& clock, const sh
     sf::Int32 msec = elapsed.asMilliseconds();
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && (msec > 100))
     {
-        bullets.push_back(bullet(playerShip.positionGet(), playerShip.rotationGet()));
+        bullets.push_back(bullet(playerShip.getPosition(), playerShip.rotationGet()));
         clock.restart();
     }
 }
