@@ -25,7 +25,7 @@ asteroid::asteroid(int lvl, int xPos, int yPos, int dir, float sp){
         size = 40;
     else
         size = 20;
-    
+
     buildFrame(xPos, yPos, dir);
 }
 
@@ -39,12 +39,11 @@ void asteroid::buildFrame(int xPos, int yPos, int dir){
     
     // Set the position of the rock
     circle.setPosition(xPos, yPos);
-    
+
     // Set the size of the rock
     circle.setRadius(size);
     circle.setFillColor(sf::Color::Transparent);
     circle.setOutlineThickness(2);
-    circle.setPosition(position.x, position.y);
     circle.setOrigin(size/2, size/2);
     
 }
