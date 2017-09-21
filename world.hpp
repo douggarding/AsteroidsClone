@@ -33,8 +33,8 @@ private:
     
 public:
     world(int w, int h);
-    
-    
+    void titleScreen(sf::Font& font, sf::RenderWindow& window)
+;
 
     void runWorld();
     void drawBullets(std::vector<bullet>& bullets, sf::RenderWindow& window);

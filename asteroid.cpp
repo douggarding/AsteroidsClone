@@ -78,7 +78,8 @@ void asteroid::updatePosition(int w, int h){
 void asteroid::makeAsteroids(std::vector<asteroid>& asteroids, int game_lvl, int ast_lvl, sf::Vector2f startPos){
     for (int i = 0; i < 2; i++){
         int direction = rand() % 359 + 1;
-        asteroids.push_back(asteroid(ast_lvl, startPos, direction, 0.3));
+        float speed_mod = (rand() % 200) / 115.0 + .3;
+        asteroids.push_back(asteroid(ast_lvl, startPos, direction, 0.25 * speed_mod));
     }
 }
 
@@ -88,7 +89,8 @@ void asteroid::makeAsteroids(std::vector<asteroid>& asteroids, int game_lvl, int
     for (int i = 0; i < 2 + game_lvl; i++){
         int direction = rand() % 359 + 1;
         sf::Vector2f  startPos = asteroidStartPosition(height, width, shipPos);
-        asteroids.push_back(asteroid(3, startPos, direction, 0.3));
+        float speed_mod = (rand() % 200) / 115.0 + .3;
+        asteroids.push_back(asteroid(3, startPos, direction, 0.25 * speed_mod));
     }
 }
 

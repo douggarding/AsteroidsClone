@@ -36,8 +36,31 @@ world::world(int w, int h){
 void world::runWorld(){
     sf::ContextSettings settings;
     settings.antialiasingLevel = 8;
-    sf::RenderWindow window(sf::VideoMode(width, height), "Asteroids!", sf::Style::Close, settings);
-
+    sf::RenderWindow window(sf::VideoMode(width, height), "---Asteroids---", sf::Style::Close, settings);
+    
+    sf::Font font;
+    if (!font.loadFromFile("spaceAge.ttf"))
+    {
+        // error...
+    }
+    //
+    // Title Screen
+    //
+    while (window.isOpen() && !sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+    {
+        sf::Event event;
+        while (window.pollEvent(event))
+        {
+            if (event.type == sf::Event::Closed)
+            {
+                window.close();
+            }
+        }
+        window.clear(sf::Color(15, 12, 25));
+        titleScreen(font, window);
+        window.display();
+    }
+    
     
     //
     // START GAME LOOP!!
@@ -165,7 +188,30 @@ void world::runWorld(){
     
 }
 
+void world::titleScreen(sf::Font& font, sf::RenderWindow& window)
+{
+    sf::Text text1;
+    sf::Text text2;
 
+    
+    text1.setFont(font);
+    text1.setString("Asteroids");
+    text1.setPosition(width / 4, height / 3);
+    text1.setCharacterSize(96);
+    text1.setFillColor(sf::Color::White);
+    text1.setStyle(sf::Text::Bold | sf::Text::Underlined);
+    
+    text2.setFont(font);
+    text2.setString("Push Space to Start");
+    text2.setPosition(width / 3.5, height / 2.4);
+    text2.setCharacterSize(36);
+    text2.setFillColor(sf::Color::White);
+    
+    window.draw(text1);
+    window.draw(text2);
+
+
+}
 
 void world::drawLevel(sf::RenderWindow& window, int game_lvl)
 {
@@ -176,11 +222,11 @@ void world::drawLevel(sf::RenderWindow& window, int game_lvl)
     
     text.setString("Hello world");
     
-    text.setCharacterSize(24);
+    text.setCharacterSize(48);
     
     text.setFillColor(sf::Color::Red);
     
-    text.setStyle(sf::Text::Bold | sf::Text::Underlined);
+    text.setStyle(sf::Text::Bold);
 
     window.draw(text);
 }
