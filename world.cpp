@@ -26,7 +26,7 @@ world::world(int w, int h){
     game_lvl = 1;
     
     // Create four level 3 asteroids for start of game
-    makeAsteroids(asteroids, game_lvl);
+    asteroid::makeAsteroids(asteroids, game_lvl, asteroidStartPosition());
 }
 
 
@@ -76,7 +76,7 @@ void world::runWorld(){
         {
             game_lvl++;
             drawLevel(window, game_lvl); // doesn't even make it to the screen. Need it to linger. display or clock?
-            makeAsteroids(asteroids, game_lvl);
+            asteroid::makeAsteroids(asteroids, game_lvl, asteroidStartPosition());
         }
         
         // Detect bullet asteroid collisions
@@ -89,7 +89,7 @@ void world::runWorld(){
                     asteroid tempAst = asteroids[i];
                     int asteroidLevel = tempAst.getLevel();
                     if(asteroidLevel > 1){
-                        makeAsteroids(asteroids, game_lvl, asteroidLevel-1, tempAst.getPosition());
+                        asteroid::makeAsteroids(asteroids, game_lvl, asteroidLevel-1, tempAst.getPosition());
                     }
                     
                     bullets.erase(bullets.begin() + j);
@@ -111,7 +111,6 @@ void world::runWorld(){
         
         // Update astroid locations
         for(auto &element : asteroids){
-
             element.updatePosition(width, height);
         }
 
@@ -170,23 +169,7 @@ sf::Vector2f world::asteroidStartPosition(){
     return startPosition;
 }
 
-void world::makeAsteroids(std::vector<asteroid>& asteroids, int game_lvlff)
-{
-    for (int i = 0; i < 2 + game_lvl; i++){
-        int direction = rand() % 359 + 1;
-        sf::Vector2f startPos = asteroidStartPosition();
-        asteroids.push_back(asteroid(3, startPos.x, startPos.y, direction, 0.3));
 
-    }
-}
-
-void world::makeAsteroids(std::vector<asteroid>& asteroids, int game_lvl, int ast_lvl, sf::Vector2f startPos){
-    for (int i = 0; i < 2 + game_lvl; i++){
-        int direction = rand() % 359 + 1;
-        asteroid rock = asteroid(ast_lvl, startPos.x, startPos.y, direction, 0.3);
-        asteroids.push_back(rock);
-    }
-}
 
 
 

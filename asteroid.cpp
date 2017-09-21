@@ -74,6 +74,26 @@ void asteroid::updatePosition(int w, int h){
     circle.move(move_x, move_y);
 }
 
+// Populates vector of asteroids with asteroids
+void asteroid::makeAsteroids(std::vector<asteroid>& asteroids, int game_lvl, int ast_lvl, sf::Vector2f startPos){
+    for (int i = 0; i < 2 + game_lvl; i++){
+        int direction = rand() % 359 + 1;
+        asteroid rock = asteroid(ast_lvl, startPos.x, startPos.y, direction, 0.3);
+        asteroids.push_back(rock);
+    }
+}
+
+// Populates vector of asteroids with asteroids
+void asteroid::makeAsteroids(std::vector<asteroid>& asteroids, int game_lvl, sf::Vector2f pos)
+{
+    for (int i = 0; i < 2 + game_lvl; i++){
+        int direction = rand() % 359 + 1;
+        asteroids.push_back(asteroid(3, pos.x, pos.y, direction, 0.3));
+        
+    }
+}
+
+
 // Draws an astroid to the window
 void asteroid::drawAsteroid(sf::RenderWindow &window){
     window.draw(circle);
