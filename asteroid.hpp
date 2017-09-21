@@ -24,10 +24,12 @@ private:
     void buildFrame(int xPos, int yPos, int dir);
     // Gets an initial starting position that is at least 50 away from the ship
     sf::Vector2f getStartPosition();
+    // Generates a random starting position
+    sf::Vector2f asteroidStartPosition();
     
 public:
     // asteroid Constructor
-    asteroid(int size, int xPos, int yPos, int direction, float speed);
+    asteroid(int size, sf::Vector2f position, int direction, float speed);
     // Draws an astroid to the window
     void drawAsteroid(sf::RenderWindow &window);
     // Updates the asteroid's position
@@ -44,7 +46,8 @@ public:
     // Populates a vector of asteroids
     static void makeAsteroids(std::vector<asteroid>& asteroids, int game_lvl, int ast_lvl, sf::Vector2f startPos);
     // Populates a vector of asteroids
-    static void makeAsteroids(std::vector<asteroid>& asteroids, int game_lvl, sf::Vector2f pos);
+    static void makeAsteroids(std::vector<asteroid>& asteroids, int game_lvl, sf::Vector2f startPos);
+    
 };
 
 #endif /* asteroid_hpp */

@@ -15,7 +15,7 @@
 
 
 // Constructs an asteroid of size s (size can be 1, 2, or 3)
-asteroid::asteroid(int lvl, int xPos, int yPos, int dir, float sp){
+asteroid::asteroid(int lvl, sf::Vector2f position, int dir, float sp){
     level = lvl;
     speed = sp;
     
@@ -26,7 +26,7 @@ asteroid::asteroid(int lvl, int xPos, int yPos, int dir, float sp){
     else
         size = 20;
 
-    buildFrame(xPos, yPos, dir);
+    buildFrame(position.x, position.y, dir);
 }
 
 // Creates the frame/shape of an astroid
@@ -76,20 +76,18 @@ void asteroid::updatePosition(int w, int h){
 
 // Populates vector of asteroids with asteroids
 void asteroid::makeAsteroids(std::vector<asteroid>& asteroids, int game_lvl, int ast_lvl, sf::Vector2f startPos){
-    for (int i = 0; i < 2 + game_lvl; i++){
+    for (int i = 0; i < 2; i++){
         int direction = rand() % 359 + 1;
-        asteroid rock = asteroid(ast_lvl, startPos.x, startPos.y, direction, 0.3);
-        asteroids.push_back(rock);
+        asteroids.push_back(asteroid(ast_lvl, startPos, direction, 0.3));
     }
 }
 
 // Populates vector of asteroids with asteroids
-void asteroid::makeAsteroids(std::vector<asteroid>& asteroids, int game_lvl, sf::Vector2f pos)
+void asteroid::makeAsteroids(std::vector<asteroid>& asteroids, int game_lvl, sf::Vector2f startPos)
 {
     for (int i = 0; i < 2 + game_lvl; i++){
         int direction = rand() % 359 + 1;
-        asteroids.push_back(asteroid(3, pos.x, pos.y, direction, 0.3));
-        
+        asteroids.push_back(asteroid(3, startPos, direction, 0.3));
     }
 }
 
