@@ -104,7 +104,8 @@ void world::runWorld(){
         for (int i = 0; i < asteroids.size(); i++){
             // Check if asteroid has collided with ship
             if(collisions::shipAsteroid(playerShip, asteroids[i])){
-                playerShip.decrimentLives();
+                playerShip.decrimentLives(width, height);
+                playerShip.shipReset(clock, asteroids, playerShip, width, height);
             }
         }
         
