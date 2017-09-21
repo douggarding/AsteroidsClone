@@ -26,7 +26,7 @@ world::world(int w, int h){
     game_lvl = 1;
     
     // Create four level 3 asteroids for start of game
-    asteroid::makeAsteroids(asteroids, game_lvl, asteroidStartPosition());
+    asteroid::makeAsteroids(asteroids, game_lvl, height, width, playerShip.getPosition());
 }
 
 
@@ -67,6 +67,15 @@ void world::runWorld(){
         playerShip.thrusters(width, height);
         
         
+        sf::Time elapsed = clock.getElapsedTime();
+        sf::Int32 msec = elapsed.asMilliseconds();
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && (msec > 100))
+        {
+            bullet::makeBullets(bullets, playerShip);
+            clock.restart();
+        }
+        
+        
         ///////////////////////
         // 2 - UPDATE GAME STATE
         ///////////////////////
@@ -76,7 +85,7 @@ void world::runWorld(){
         {
             game_lvl++;
             drawLevel(window, game_lvl); // doesn't even make it to the screen. Need it to linger. display or clock?
-            asteroid::makeAsteroids(asteroids, game_lvl, asteroidStartPosition());
+            asteroid::makeAsteroids(asteroids, game_lvl, height, width, playerShip.getPosition());
         }
         
         // Detect bullet asteroid collisions
@@ -94,7 +103,9 @@ void world::runWorld(){
                     
                     bullets.erase(bullets.begin() + j);
                     asteroids.erase(asteroids.begin() + i);
-                    i--;
+                    if(i > 0){
+                        i--;
+                    }
                     j--;
                 }
             }
@@ -114,7 +125,15 @@ void world::runWorld(){
         for(auto &element : asteroids){
             element.updatePosition(width, height);
         }
-
+        
+        // Update bullet locations
+        for(auto &element : bullets){
+            element.updatePosition(width, height);
+        }
+        
+        // Destroy old bullets
+        bullet::destroyBullets(bullets);
+        
         
         ///////////////////////
         // 3 - RENDER THE GAME
@@ -124,13 +143,14 @@ void world::runWorld(){
         playerShip.drawShip(window);
         
         // Draw asteroids
-        for(int i = 0; i < asteroids.size(); i++){
-            asteroids[i].drawAsteroid(window);
+        for(auto element : asteroids){
+            element.drawAsteroid(window);
         }
         
         // Draw bullets
-        makeBullets(bullets, clock, playerShip); // ship method
-        drawBullets(bullets, window); // world method
+        for(auto element : bullets){
+            element.drawBullet(window);
+        }
 
         // Draw lives
         playerShip.drawLives(window);
@@ -145,69 +165,6 @@ void world::runWorld(){
 }
 
 
-/**
- * HELPER METHOD - RANDOM ASTEROID STARTING POSITION
- * Gets two random points within the game window. These two points will be at least
- * 400 pixels away from the position of the ship. This is to prevent an unfair scenario
- * where asteroids spawn so close to the ship that there is no fair opportunity to avoid them.
- */
-sf::Vector2f world::asteroidStartPosition(){
-    
-    // (x, y) values within world dimensions, but 100px away from ship:
-    int xPos = 0;
-    int yPos = 0;
-    int distance = 0;
-    do{
-        xPos = rand() % width;
-        yPos = rand() % height;
-        
-        // Distance formula to calculate distance between this coordinate and the ship coordinate
-        distance = sqrt(pow((xPos - playerShip.getPosition().x), 2) + pow((yPos - playerShip.getPosition().y), 2));
-        
-    } while (distance <= 100);
-    
-    sf::Vector2f startPosition(xPos, yPos);
-    return startPosition;
-}
-
-
-
-
-
-
-/**
- * I tried doing this as a part of the ship class or the bullet class,
- * but the implementation got too complicated so I left them here.
- */
-void world::makeBullets(std::vector<bullet>& bullets, sf::Clock& clock, const ship& playerShip)
-{
-    sf::Time elapsed = clock.getElapsedTime();
-    sf::Int32 msec = elapsed.asMilliseconds();
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && (msec > 100))
-    {
-        bullets.push_back(bullet(playerShip.getPosition(), playerShip.rotationGet()));
-        clock.restart();
-    }
-}
-
-void world::drawBullets(std::vector<bullet>& bullets, sf::RenderWindow& window)
-{
-    for (int i = 0; i < bullets.size(); i++)
-    {
-        bullets[i].move(width, height);
-        window.draw(bullets[i].getRectangle());
-        destroyBullets(bullets, i);
-    }
-}
-
-void world::destroyBullets(std::vector<bullet>& bullets, int i)
-{
-    if (bullets[i].getDistance() > 600 )
-    {
-        bullets.erase (bullets.begin() + i);
-        i--;
-    }
-}
 
 void world::drawLevel(sf::RenderWindow& window, int game_lvl)
 {

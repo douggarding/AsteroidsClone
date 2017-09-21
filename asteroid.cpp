@@ -83,13 +83,43 @@ void asteroid::makeAsteroids(std::vector<asteroid>& asteroids, int game_lvl, int
 }
 
 // Populates vector of asteroids with asteroids
-void asteroid::makeAsteroids(std::vector<asteroid>& asteroids, int game_lvl, sf::Vector2f startPos)
+void asteroid::makeAsteroids(std::vector<asteroid>& asteroids, int game_lvl, int height, int width, sf::Vector2f shipPos)
 {
     for (int i = 0; i < 2 + game_lvl; i++){
         int direction = rand() % 359 + 1;
+        sf::Vector2f  startPos = asteroidStartPosition(height, width, shipPos);
         asteroids.push_back(asteroid(3, startPos, direction, 0.3));
     }
 }
+
+
+
+
+/**
+ * HELPER METHOD - RANDOM ASTEROID STARTING POSITION
+ * Gets two random points within the game window. These two points will be at least
+ * 400 pixels away from the position of the ship. This is to prevent an unfair scenario
+ * where asteroids spawn so close to the ship that there is no fair opportunity to avoid them.
+ */
+sf::Vector2f asteroid::asteroidStartPosition(int width, int height, sf::Vector2f shipPos){
+    
+    // (x, y) values within world dimensions, but 100px away from ship:
+    int xPos = 0;
+    int yPos = 0;
+    int distance = 0;
+    do{
+        xPos = rand() % width;
+        yPos = rand() % height;
+        
+        // Distance formula to calculate distance between this coordinate and the ship coordinate
+        distance = sqrt(pow((xPos - shipPos.x), 2) + pow((yPos - shipPos.y), 2));
+        
+    } while (distance <= 100);
+    
+    sf::Vector2f startPosition(xPos, yPos);
+    return startPosition;
+}
+
 
 
 // Draws an astroid to the window

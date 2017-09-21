@@ -26,7 +26,18 @@ public:
     sf::Vector2f getPosition() const;
     int getRotation() const;
     sf::Vector2f getSize() const;
+    
+    
+    void drawBullet(sf::RenderWindow &window);
+    
+    // Updates the position of a bullet for the current frame
+    void updatePosition(int width, int height);
+    
+    // Destroys bullet if it's traveled its distance
+    static void destroyBullets(std::vector<bullet>& bullets);
 
+    // adds bullets to the vector of bullets
+    static void makeBullets(std::vector<bullet>& bullets, const ship& playerShip);
 
 };
 

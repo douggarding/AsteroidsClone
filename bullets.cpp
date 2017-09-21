@@ -34,9 +34,8 @@ sf::RectangleShape bullet::getRectangle()
     return rectangle;
 }
 
-
-void bullet::move(int width, int height)
-{
+void bullet::updatePosition(int width, int height){
+    
     if (getPosition().x >= width)
     {
         rectangle.setPosition(0, getPosition().y);
@@ -48,7 +47,7 @@ void bullet::move(int width, int height)
     if (getPosition().y >= height)
     {
         rectangle.setPosition(getPosition().x, 0);
-
+        
     }
     else if (getPosition().y <= 0)
     {
@@ -59,8 +58,35 @@ void bullet::move(int width, int height)
     float x_update = sin(getRotation() * PI / 180 ) * speed;
     rectangle.move(x_update, y_update);
     distance +=  speed;
-    
 }
+
+
+void bullet::makeBullets(std::vector<bullet>& bullets, const ship& playerShip)
+{
+    bullets.push_back(bullet(playerShip.getPosition(), playerShip.rotationGet()));
+}
+
+
+// Destroys bullet if it's traveled its distance
+void bullet::destroyBullets(std::vector<bullet>& bullets){
+    for(int i = 0; i < bullets.size(); i++){
+        if (bullets[i].getDistance() > 600 )
+        {
+            bullets.erase (bullets.begin() + i);
+            i--;
+        }
+    }
+}
+
+
+void bullet::drawBullet(sf::RenderWindow& window)
+{
+    window.draw(rectangle);
+}
+
+
+
+
 
 int bullet::getDistance()
 {

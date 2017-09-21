@@ -34,13 +34,10 @@ private:
 public:
     world(int w, int h);
     
-    // Creates a starting position that is 30 pixels away from the ship
-    sf::Vector2f asteroidStartPosition();
+    
 
     void runWorld();
     void drawBullets(std::vector<bullet>& bullets, sf::RenderWindow& window);
-    void destroyBullets(std::vector<bullet>& bullets, int i);
-    void makeBullets(std::vector<bullet>& bullets, sf::Clock& clock, const ship& playerShip);
     void drawLevel(sf::RenderWindow& window, int game_lvl);
 
 };
