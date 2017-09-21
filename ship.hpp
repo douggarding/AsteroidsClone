@@ -31,11 +31,13 @@ public:
     sf::CircleShape getShip();
     sf::Vector2f getPosition() const;
     int rotationGet() const;
-    int getSize();
     void drawShip(sf::RenderWindow &window);
     void drawLives(sf::RenderWindow& window);
     void decrimentLives(int width, int height);
     static void shipReset(sf::Clock& clock, std::vector<asteroid>& asteroids, ship& playerShip, int width, int height, sf::RenderWindow& window);
+    
+    // Returns the bounds of the object for collisions
+    sf::FloatRect getBounds();
 
 
     

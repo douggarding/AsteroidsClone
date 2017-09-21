@@ -15,6 +15,7 @@
 #include "asteroid.hpp"
 #include "bullets.hpp"
 #include "collisions.hpp"
+#include "PowerUp.hpp"
 
 
 
@@ -25,17 +26,20 @@ private:
     int height;
     int game_lvl;
     ship playerShip;
-    std::vector<asteroid> asteroids;
     sf::Clock clock;
+    std::vector<asteroid> asteroids;
     std::vector<bullet> bullets;
+    std::vector<PowerUp> powerUps;
     
     bool bulletAsteroidCollision(bullet &b, asteroid &a);
     
 public:
+    // static ints that represent the width and height
+    const static int frameWidth = 1600;
+    const static int frameHeight = 1200;
+    
     world(int w, int h);
     
-    
-
     void runWorld();
     void drawBullets(std::vector<bullet>& bullets, sf::RenderWindow& window);
     void drawLevel(sf::RenderWindow& window, int game_lvl);

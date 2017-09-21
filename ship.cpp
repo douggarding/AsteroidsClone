@@ -162,6 +162,11 @@ void ship::drawShip(sf::RenderWindow& window){
     }
 }
 
+// Returns the bounds of the object for collisions
+sf::FloatRect ship::getBounds(){
+    return triangle.getGlobalBounds();
+}
+
 sf::Vector2f ship::getPosition() const
 {
     return triangle.getPosition();
@@ -170,10 +175,6 @@ sf::Vector2f ship::getPosition() const
 int ship::rotationGet() const
 {
     return triangle.getRotation();
-}
-
-int ship::getSize(){
-    return size;
 }
 
 void ship::decrimentLives(int width, int height){
