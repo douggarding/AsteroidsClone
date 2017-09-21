@@ -25,7 +25,7 @@ cmake_minimum_required(VERSION 3.8)
 project(asteroids)
 
 #the project contains an executable named asteroids that uses the following cpp files
-add_executable(asteroids main.cpp ship.cpp ship.hpp world.cpp world.hpp bullets.cpp bullets.hpp asteroid.cpp asteroid.hpp collisions.cpp collisions.hpp)
+add_executable(asteroids main.cpp ship.cpp ship.hpp world.cpp world.hpp bullets.cpp bullets.hpp asteroid.cpp asteroid.hpp collisions.cpp collisions.hpp PowerUp.cpp PowerUp.hpp)
 
 #create a folder named "cmake" at the top of your project and put the
 #findSFML.cmake file in it.  This line tells Cmake to look there for

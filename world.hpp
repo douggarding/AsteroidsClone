@@ -34,9 +34,12 @@ private:
     bool bulletAsteroidCollision(bullet &b, asteroid &a);
     
 public:
+    // static ints that represent the width and height
+    const static int frameWidth = 1600;
+    const static int frameHeight = 1200;
+    
     world(int w, int h);
-    void titleScreen(sf::Font& font, sf::RenderWindow& window)
-;
+    void titleScreen(sf::Font& font, sf::RenderWindow& window);
 
     void runWorld();
     void drawBullets(std::vector<bullet>& bullets, sf::RenderWindow& window);
