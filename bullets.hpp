@@ -24,7 +24,7 @@ public:
     bullet();
     void move(int width, int height);
     int getDistance();
-    sf::Vector2f getPos() const;
+    sf::Vector2f getPosition() const;
     int getRotation() const;
     sf::Vector2f getSize() const;
 

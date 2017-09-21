@@ -37,22 +37,22 @@ sf::RectangleShape bullet::getRectangle()
 
 void bullet::move(int width, int height)
 {
-    if (getPos().x >= width)
+    if (getPosition().x >= width)
     {
-        rectangle.setPosition(0, getPos().y);
+        rectangle.setPosition(0, getPosition().y);
     }
-    else if (getPos().x <= 0)
+    else if (getPosition().x <= 0)
     {
-        rectangle.setPosition(width -1, getPos().y);
+        rectangle.setPosition(width -1, getPosition().y);
     }
-    if (getPos().y >= height)
+    if (getPosition().y >= height)
     {
-        rectangle.setPosition(getPos().x, 0);
+        rectangle.setPosition(getPosition().x, 0);
 
     }
-    else if (getPos().y <= 0)
+    else if (getPosition().y <= 0)
     {
-        rectangle.setPosition(getPos().x, height - 1);
+        rectangle.setPosition(getPosition().x, height - 1);
     }
     
     float y_update = -cos(getRotation() * PI / 180 ) * speed;
@@ -67,7 +67,7 @@ int bullet::getDistance()
     return distance;
 }
 
-sf::Vector2f bullet::getPos() const
+sf::Vector2f bullet::getPosition() const
 {
     return rectangle.getPosition();
 }

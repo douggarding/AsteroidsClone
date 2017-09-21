@@ -14,7 +14,7 @@
 #include "world.hpp"
 #include "ship.hpp"
 #include "asteroid.hpp"
-
+#include "collisions.hpp"
 
 
 world::world(int w, int h){
@@ -24,30 +24,11 @@ world::world(int w, int h){
     width = w;
     height = h;
     playerShip = ship::ship(20, width/2 - 10, height/2 - 10);
-    clock;
-    bullets;
-    asteroids;
     game_lvl = 1;
     
     // Create four level 3 asteroids for start of game
     makeAsteroids(asteroids, game_lvl);
-
 }
-
-// Check if bullet collided with an asteroid
-bool world::bulletAsteroidCollision(bullet &b, asteroid &a){
-    
-    
-    // get the position of the bullet and asteroid
-    sf::Vector2f bPosition = b.getPos();
-    sf::Vector2f aPosition = a.getPosition();
-    
-    // Calculate distance between the two using distance formula
-    int distance = sqrt(pow((bPosition.x - aPosition.x), 2) + pow((bPosition.y - aPosition.y), 2));
-    
-    return (distance <= (a.getRadius() + b.getSize().x));
-}
-
 
 
 /**
@@ -98,6 +79,19 @@ void world::runWorld(){
             makeAsteroids(asteroids, game_lvl);
         }
         
+        // Detect bullet asteroid collisions
+        for(int i = 0; i < asteroids.size(); i++){
+            for(int j = 0; j < bullets.size(); j++){
+                //Check if each bullet and astroid collide
+                if(collisions::bulletAsteroid(bullets[j], asteroids[i])){
+                    
+                    bullets.erase(bullets.begin() + j);
+                    asteroids.erase(asteroids.begin() + i);
+                    i--;
+                    j--;
+                }
+            }
+        }
         
         // Update object locations
         for(auto &element : asteroids){
@@ -118,20 +112,6 @@ void world::runWorld(){
         // Draw bullets
         makeBullets(bullets, clock, playerShip); // ship method
         drawBullets(bullets, window); // world method
-
-        // Detect bullet asteroid collisions
-        for(int i = 0; i < asteroids.size(); i++){
-            for(int j = 0; j < bullets.size(); j++){
-                //Check if each bullet and astroid collide
-                if(bulletAsteroidCollision(bullets[j], asteroids[i])){
-                    
-                    bullets.erase(bullets.begin() + j);
-                    asteroids.erase(asteroids.begin() + i);
-                    i--;
-                    j--;
-                }
-            }
-        }
 
         // Draw lives
         playerShip.drawLives(window);
