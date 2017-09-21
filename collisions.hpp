@@ -13,13 +13,16 @@
 #include "bullets.hpp"
 #include "asteroid.hpp"
 #include "ship.hpp"
+#include "PowerUp.hpp"
 
 class collisions{
 public:
     // Detects a collision between an Asteroid and a Bullet
     static bool bulletAsteroid(bullet &b, asteroid &a);
-    // Detects a collision between an Asteroid and a Bullet
+    // Detects a collision between an Asteroid and a ship
     static bool shipAsteroid(ship &s, asteroid &a);
+    // Detects a collision between a ship and a power up
+    static bool shipPowerUp(ship &s, PowerUp &p);
 };
 
 

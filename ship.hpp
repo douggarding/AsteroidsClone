@@ -17,7 +17,6 @@ class ship{
     sf::Vector2f speed; // contains initial velocity(Vo) in x and y directions
     int old_rotation;
     int lives;
-    int size;
     
     sf::ConvexShape buildFrame(int xPos, int yPos);
     sf::ConvexShape buildFlameFrame();
@@ -32,11 +31,13 @@ public:
     sf::CircleShape getShip();
     sf::Vector2f getPosition() const;
     int rotationGet() const;
-    int getSize();
     void drawShip(sf::RenderWindow &window);
     void drawLives(sf::RenderWindow& window);
     void decrimentLives(int width, int height);
     static void shipReset(sf::Clock& clock, std::vector<asteroid>& asteroids, ship& playerShip, int width, int height, sf::RenderWindow& window);
+    
+    // Returns the bounds of the object for collisions
+    sf::FloatRect getBounds();
 
 
     

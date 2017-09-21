@@ -15,11 +15,11 @@
 #include "ship.hpp"
 #include "asteroid.hpp"
 #include "collisions.hpp"
+#include "PowerUp.hpp"
 
 world::world(int w, int h){
     // Create seed for the random number generator
     srand (time(0));
-    
     width = w;
     height = h;
     playerShip = ship::ship(20, width/2 - 10, height/2 - 10);
@@ -27,6 +27,9 @@ world::world(int w, int h){
     
     // Create four level 3 asteroids for start of game
     asteroid::makeAsteroids(asteroids, game_lvl, height, width, playerShip.getPosition());
+    
+    // start with a power up on screen
+    PowerUp::addPowerUp(powerUps);
 }
 
 
@@ -111,6 +114,16 @@ void world::runWorld(){
             asteroid::makeAsteroids(asteroids, game_lvl, height, width, playerShip.getPosition());
         }
         
+        // Insert power up
+        
+        // Detect ship power up collisions
+        for(int i = 0; i < powerUps.size(); i++){
+            if(collisions::shipPowerUp(playerShip, powerUps[i])){
+                powerUps.erase(powerUps.begin() + i);
+                i--;
+            }
+        }
+        
         // Detect bullet asteroid collisions
         for(int i = 0; i < asteroids.size(); i++){
             for(int j = 0; j < bullets.size(); j++){
@@ -176,6 +189,11 @@ void world::runWorld(){
             element.drawBullet(window);
         }
 
+        // Draw Powerups
+        for(auto element : powerUps){
+            element.drawPowerUp(window);
+        }
+        
         // Draw lives
         playerShip.drawLives(window);
         

@@ -15,6 +15,7 @@
 #include "asteroid.hpp"
 #include "bullets.hpp"
 #include "collisions.hpp"
+#include "PowerUp.hpp"
 
 
 
@@ -25,9 +26,10 @@ private:
     int height;
     int game_lvl;
     ship playerShip;
-    std::vector<asteroid> asteroids;
     sf::Clock clock;
+    std::vector<asteroid> asteroids;
     std::vector<bullet> bullets;
+    std::vector<PowerUp> powerUps;
     
     bool bulletAsteroidCollision(bullet &b, asteroid &a);
     
