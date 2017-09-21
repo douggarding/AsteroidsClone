@@ -16,7 +16,6 @@
 #include "asteroid.hpp"
 #include "collisions.hpp"
 
-
 world::world(int w, int h){
     // Create seed for the random number generator
     srand (time(0));
@@ -55,7 +54,8 @@ void world::runWorld(){
         }
         
         // Clears the previous frame
-        window.clear(sf::Color(44, 33, 68));
+        window.clear(sf::Color(15, 12, 25));
+
         
         
         ///////////////////////
@@ -111,6 +111,7 @@ void world::runWorld(){
         
         // Update astroid locations
         for(auto &element : asteroids){
+
             element.updatePosition(width, height);
         }
 
@@ -152,7 +153,7 @@ void world::runWorld(){
  */
 sf::Vector2f world::asteroidStartPosition(){
     
-    // (x, y) values within world dimensions, but 400px away from ship:
+    // (x, y) values within world dimensions, but 100px away from ship:
     int xPos = 0;
     int yPos = 0;
     int distance = 0;
@@ -163,7 +164,7 @@ sf::Vector2f world::asteroidStartPosition(){
         // Distance formula to calculate distance between this coordinate and the ship coordinate
         distance = sqrt(pow((xPos - playerShip.getPosition().x), 2) + pow((yPos - playerShip.getPosition().y), 2));
         
-    } while (distance <= 400);
+    } while (distance <= 100);
     
     sf::Vector2f startPosition(xPos, yPos);
     return startPosition;
@@ -174,8 +175,8 @@ void world::makeAsteroids(std::vector<asteroid>& asteroids, int game_lvlff)
     for (int i = 0; i < 2 + game_lvl; i++){
         int direction = rand() % 359 + 1;
         sf::Vector2f startPos = asteroidStartPosition();
-        asteroid rock = asteroid(3, startPos.x, startPos.y, direction, 0.3);
-        asteroids.push_back(rock);
+        asteroids.push_back(asteroid(3, startPos.x, startPos.y, direction, 0.3));
+
     }
 }
 
