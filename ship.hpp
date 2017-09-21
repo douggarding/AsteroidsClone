@@ -32,7 +32,8 @@ public:
     sf::Vector2f positionGet() const;
     int rotationGet() const;
     void drawShip(sf::RenderWindow &window);
-
+    void drawLives(sf::RenderWindow& window)
+;
     
 };
 

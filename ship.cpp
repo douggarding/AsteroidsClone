@@ -149,7 +149,7 @@ void ship::thrusters(int width, int height)
     flameShip.setPosition(positionGet().x, positionGet().y);
 }
 
-void ship::drawShip(sf::RenderWindow &window){
+void ship::drawShip(sf::RenderWindow& window){
     
     // If they up key is being pressed, flicker the flame
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)){
@@ -172,6 +172,17 @@ int ship::rotationGet() const
     return triangle.getRotation();
 }
 
-
+void ship::drawLives(sf::RenderWindow& window)
+{
+    sf::ConvexShape stationary_ship = triangle;
+    int life_pos = 30;
+    for (int life = 0; life < lives; life++)
+    {
+        stationary_ship.setRotation(0);
+        stationary_ship.setScale(0.5, 0.5);
+        stationary_ship.setPosition(life_pos * life + life_pos, life_pos);
+        window.draw(stationary_ship);
+    }
+}
 
 

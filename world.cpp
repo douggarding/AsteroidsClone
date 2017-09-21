@@ -133,6 +133,8 @@ void world::runWorld(){
             }
         }
 
+        // Draw lives
+        playerShip.drawLives(window);
         
         // Updates the display
         window.display();
