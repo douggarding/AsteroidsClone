@@ -17,7 +17,6 @@ ship::ship(){
 
 
 ship::ship(int s, int xPos, int yPos){
-    size = s;
     speed.x = 0.0;
     speed.y = 0.0;
     old_rotation = 0;

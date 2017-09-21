@@ -16,7 +16,6 @@ class ship{
     sf::Vector2f speed; // contains initial velocity(Vo) in x and y directions
     int old_rotation;
     int lives;
-    int size;
     
     sf::ConvexShape buildFrame(int xPos, int yPos);
     sf::ConvexShape buildFlameFrame();

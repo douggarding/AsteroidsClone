@@ -114,7 +114,7 @@ sf::Vector2f asteroid::asteroidStartPosition(int width, int height, sf::Vector2f
         // Distance formula to calculate distance between this coordinate and the ship coordinate
         distance = sqrt(pow((xPos - shipPos.x), 2) + pow((yPos - shipPos.y), 2));
         
-    } while (distance <= 100);
+    } while (distance <= 200);
     
     sf::Vector2f startPosition(xPos, yPos);
     return startPosition;
