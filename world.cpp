@@ -26,7 +26,7 @@ world::world(int w, int h){
     game_lvl = 1;
     
     // Create four level 3 asteroids for start of game
-    asteroid::makeAsteroids(asteroids, game_lvl, asteroidStartPosition());
+    asteroid::makeAsteroids(asteroids, game_lvl, height, width, playerShip.getPosition());
 }
 
 
@@ -85,7 +85,7 @@ void world::runWorld(){
         {
             game_lvl++;
             drawLevel(window, game_lvl); // doesn't even make it to the screen. Need it to linger. display or clock?
-            asteroid::makeAsteroids(asteroids, game_lvl, asteroidStartPosition());
+            asteroid::makeAsteroids(asteroids, game_lvl, height, width, playerShip.getPosition());
         }
         
         // Detect bullet asteroid collisions
@@ -161,32 +161,6 @@ void world::runWorld(){
     // END GAME LOOP
     //
     
-}
-
-
-/**
- * HELPER METHOD - RANDOM ASTEROID STARTING POSITION
- * Gets two random points within the game window. These two points will be at least
- * 400 pixels away from the position of the ship. This is to prevent an unfair scenario
- * where asteroids spawn so close to the ship that there is no fair opportunity to avoid them.
- */
-sf::Vector2f world::asteroidStartPosition(){
-    
-    // (x, y) values within world dimensions, but 100px away from ship:
-    int xPos = 0;
-    int yPos = 0;
-    int distance = 0;
-    do{
-        xPos = rand() % width;
-        yPos = rand() % height;
-        
-        // Distance formula to calculate distance between this coordinate and the ship coordinate
-        distance = sqrt(pow((xPos - playerShip.getPosition().x), 2) + pow((yPos - playerShip.getPosition().y), 2));
-        
-    } while (distance <= 100);
-    
-    sf::Vector2f startPosition(xPos, yPos);
-    return startPosition;
 }
 
 

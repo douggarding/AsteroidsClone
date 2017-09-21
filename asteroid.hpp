@@ -26,6 +26,8 @@ private:
     sf::Vector2f getStartPosition();
     // Generates a random starting position
     sf::Vector2f asteroidStartPosition();
+    // Creates a starting position that is X pixels away from the ship
+    static sf::Vector2f asteroidStartPosition(int height, int width, sf::Vector2f shipPos);
     
 public:
     // asteroid Constructor
@@ -46,7 +48,7 @@ public:
     // Populates a vector of asteroids
     static void makeAsteroids(std::vector<asteroid>& asteroids, int game_lvl, int ast_lvl, sf::Vector2f startPos);
     // Populates a vector of asteroids
-    static void makeAsteroids(std::vector<asteroid>& asteroids, int game_lvl, sf::Vector2f startPos);
+    static void makeAsteroids(std::vector<asteroid>& asteroids, int game_lvl, int height, int width, sf::Vector2f shipPos);
     
 };
 
