@@ -39,6 +39,7 @@ public:
     int getSize();
     // Gets the asteroid's rotation
     int getRotation();
+    int getRadius();
 };
 
 #endif /* asteroid_hpp */

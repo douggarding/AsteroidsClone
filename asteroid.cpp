@@ -95,3 +95,7 @@ int asteroid::getRotation()
     return circle.getRotation();
 }
 
+int asteroid::getRadius()
+{
+    return circle.getRadius();
+}

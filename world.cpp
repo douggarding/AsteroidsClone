@@ -45,7 +45,7 @@ bool world::bulletAsteroidCollision(bullet &b, asteroid &a){
     // Calculate distance between the two using distance formula
     int distance = sqrt(pow((bPosition.x - aPosition.x), 2) + pow((bPosition.y - aPosition.y), 2));
     
-    return (distance <= a.getSize());
+    return (distance <= (a.getRadius() + b.getSize().x));
 }
 
 

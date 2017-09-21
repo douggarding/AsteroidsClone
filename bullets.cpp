@@ -77,7 +77,10 @@ int bullet::getRotation() const
     return rectangle.getRotation();
 }
 
-
+sf::Vector2f bullet::getSize() const
+{
+    return rectangle.getSize();
+}
 
 
 

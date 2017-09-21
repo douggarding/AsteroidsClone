@@ -26,6 +26,8 @@ public:
     int getDistance();
     sf::Vector2f getPos() const;
     int getRotation() const;
+    sf::Vector2f getSize() const;
+
 
 };
 
