@@ -176,6 +176,10 @@ int ship::getSize(){
     return size;
 }
 
+void ship::decrimentLives(){
+    lives--;
+}
+
 void ship::drawLives(sf::RenderWindow& window)
 {
     sf::ConvexShape stationary_ship = triangle;

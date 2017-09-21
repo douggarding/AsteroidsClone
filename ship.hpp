@@ -33,7 +33,8 @@ public:
     int rotationGet() const;
     int getSize();
     void drawShip(sf::RenderWindow &window);
-    void drawLives(sf::RenderWindow& window)
+    void drawLives(sf::RenderWindow& window);
+    void decrimentLives();
 ;
     
 };
