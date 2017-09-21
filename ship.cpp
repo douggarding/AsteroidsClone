@@ -7,6 +7,7 @@
 //
 
 #include "ship.hpp"
+#include "collisions.hpp"
 #include <cmath>
 #define PI 3.14159265
 
@@ -175,7 +176,11 @@ int ship::getSize(){
     return size;
 }
 
-void ship::decrimentLives(){
+void ship::decrimentLives(int width, int height){
+    speed.x = 0.0;
+    speed.y = 0.0;
+    old_rotation = 0;
+    triangle.setPosition((width / 2) -10, (height / 2) - 10);
     lives--;
 }
 
@@ -192,4 +197,28 @@ void ship::drawLives(sf::RenderWindow& window)
     }
 }
 
-
+void ship::shipReset(sf::Clock& clock, std::vector<asteroid>& asteroids, ship& playerShip, int width, int height, sf::RenderWindow& window)
+{
+    clock.restart();
+    sf::Time elapsed = clock.getElapsedTime();
+    sf::Int32 sec = elapsed.asSeconds();
+    bool unsafe = false;
+    do
+    {
+        window.clear(sf::Color(15, 12, 25));
+        bool unsafe = false;
+        sf::Time elapsed = clock.getElapsedTime();
+        sec = elapsed.asSeconds();
+        for (auto &element : asteroids)
+        {
+            if(collisions::shipAsteroid(playerShip, element))
+            {
+                unsafe = true;
+            }
+            element.updatePosition(width, height);
+            element.drawAsteroid(window);
+        }
+        window.display();
+        
+    }while(unsafe || sec < 0.1);
+}

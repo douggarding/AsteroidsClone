@@ -9,6 +9,7 @@
 #ifndef ship_hpp
 #define ship_hpp
 #include <SFML/Graphics.hpp>
+#include "asteroid.hpp"
 
 class ship{
     sf::ConvexShape triangle;
@@ -33,8 +34,10 @@ public:
     int getSize();
     void drawShip(sf::RenderWindow &window);
     void drawLives(sf::RenderWindow& window);
-    void decrimentLives();
-;
+    void decrimentLives(int width, int height);
+    static void shipReset(sf::Clock& clock, std::vector<asteroid>& asteroids, ship& playerShip, int width, int height, sf::RenderWindow& window);
+
+
     
 };
 

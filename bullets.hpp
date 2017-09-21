@@ -8,8 +8,8 @@
 
 #ifndef bullets_hpp
 #define bullets_hpp
+#include <SFML/Graphics.hpp>
 #include "ship.hpp"
-#include "SFML/Graphics.hpp"
 
 class bullet{
     sf::RectangleShape rectangle;
