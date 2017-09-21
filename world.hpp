@@ -35,9 +35,11 @@ private:
     
 public:
     world(int w, int h);
-    void titleScreen(sf::Font& font, sf::RenderWindow& window)
-;
+    void titleScreen(sf::Font& font, sf::RenderWindow& window);
 
+    const static int frameWidth = 1600;
+    const static int frameHeight = 1200;
+    
     void runWorld();
     void drawBullets(std::vector<bullet>& bullets, sf::RenderWindow& window);
     void drawLevel(sf::RenderWindow& window, int game_lvl);
