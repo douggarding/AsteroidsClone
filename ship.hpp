@@ -36,7 +36,7 @@ public:
     void drawShip(sf::RenderWindow &window);
     void drawLives(sf::RenderWindow& window);
     void decrimentLives(int width, int height);
-    static void shipReset(sf::Clock clock, std::vector<asteroid> asteroids, ship playerShip, int width, int height);
+    static void shipReset(sf::Clock& clock, std::vector<asteroid>& asteroids, ship& playerShip, int width, int height, sf::RenderWindow& window);
 
 
     

@@ -198,7 +198,7 @@ void ship::drawLives(sf::RenderWindow& window)
     }
 }
 
-void ship::shipReset(sf::Clock clock, std::vector<asteroid> asteroids, ship playerShip, int width, int height)
+void ship::shipReset(sf::Clock& clock, std::vector<asteroid>& asteroids, ship& playerShip, int width, int height, sf::RenderWindow& window)
 {
     clock.restart();
     sf::Time elapsed = clock.getElapsedTime();
@@ -206,17 +206,20 @@ void ship::shipReset(sf::Clock clock, std::vector<asteroid> asteroids, ship play
     bool unsafe = false;
     do
     {
+        window.clear(sf::Color(15, 12, 25));
         bool unsafe = false;
         sf::Time elapsed = clock.getElapsedTime();
         sec = elapsed.asSeconds();
         for (auto &element : asteroids)
         {
-            element.updatePosition(width, height);
             if(collisions::shipAsteroid(playerShip, element))
             {
                 unsafe = true;
             }
+            element.updatePosition(width, height);
+            element.drawAsteroid(window);
         }
+        window.display();
         
     }while(unsafe || sec < 0.1);
 }

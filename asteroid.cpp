@@ -103,7 +103,7 @@ void asteroid::makeAsteroids(std::vector<asteroid>& asteroids, int game_lvl, int
  */
 sf::Vector2f asteroid::asteroidStartPosition(int width, int height, sf::Vector2f shipPos){
     
-    // (x, y) values within world dimensions, but 100px away from ship:
+    // (x, y) values within world dimensions, but 200px away from ship:
     int xPos = 0;
     int yPos = 0;
     int distance = 0;
@@ -114,7 +114,7 @@ sf::Vector2f asteroid::asteroidStartPosition(int width, int height, sf::Vector2f
         // Distance formula to calculate distance between this coordinate and the ship coordinate
         distance = sqrt(pow((xPos - shipPos.x), 2) + pow((yPos - shipPos.y), 2));
         
-    } while (distance <= 100);
+    } while (distance <= 200);
     
     sf::Vector2f startPosition(xPos, yPos);
     return startPosition;
