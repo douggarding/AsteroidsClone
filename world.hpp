@@ -18,12 +18,16 @@
 #include "PowerUp.hpp"
 
 
-
+/// World class. This is where most of the game happens.
+/// It also contains all the other classes. There are
+/// multiple screens: a title screen, level screens, and
+/// a Game Over screen. The font used for the screens is
+/// Space Age.
 class world{
 private:
     // Width and height of window/game
-    int width;
-    int height;
+    int width; /// Width of screen
+    int height; /// Height of screen
     int game_lvl;
     ship playerShip;
     sf::Clock clock;
@@ -35,16 +39,16 @@ private:
     
 public:
     // static ints that represent the width and height
-    const static int frameWidth = 1600;
-    const static int frameHeight = 1200;
+    const static int frameWidth = 1600; /// These are because we got tired of including width and height as parameters
+    const static int frameHeight = 1200; /// But they came so late in the game that we never got to use them.
     
     world(int w, int h);
-    void titleScreen(sf::Font& font, sf::RenderWindow& window);
+    void titleScreen(sf::Font& font, sf::RenderWindow& window); /// Title Screen
     
     void runWorld();
     void drawBullets(std::vector<bullet>& bullets, sf::RenderWindow& window);
-    void drawLevel(sf::RenderWindow& window, sf::Font& font, sf::Clock& clock, int game_lvl);
-    void gameOver(sf::RenderWindow& window, sf::Font& font, ship& playerShip);
+    void drawLevel(sf::RenderWindow& window, sf::Font& font, sf::Clock& clock, int game_lvl); /// Level Screen
+    void gameOver(sf::RenderWindow& window, sf::Font& font, ship& playerShip); /// Game Over Screen
 
 
 };
