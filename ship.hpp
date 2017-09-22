@@ -26,6 +26,7 @@ public:
     ship();
     ship(int size, int xPos, int yPos);
     void addlife();
+    int livesLeft();
     void rotateRight();
     void rotateLeft();
     void thrusters(int width, int height);

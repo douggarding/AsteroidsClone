@@ -116,6 +116,7 @@ void world::runWorld(){
             playerShip.addlife();
             playerShip.decrimentLives(width, height);
             asteroid::makeAsteroids(asteroids, game_lvl, height, width, playerShip.getPosition());
+            bullets.erase(bullets.begin(), bullets.end());
         }
         
         // Insert power up
@@ -160,7 +161,14 @@ void world::runWorld(){
                 playerShip.shipReset(clock, asteroids, playerShip, width, height, window);
             }
         }
-        
+        if (playerShip.livesLeft() == 0)
+        {
+            gameOver(window, font, playerShip);
+            game_lvl = 1;
+            bullets.erase(bullets.begin(), bullets.end());
+            asteroids.erase(asteroids.begin(), asteroids.end());
+            asteroid::makeAsteroids(asteroids, game_lvl, height, width, playerShip.getPosition());
+        }
         
         // Update astroid locations
         for(auto &element : asteroids){
@@ -235,12 +243,11 @@ void world::titleScreen(sf::Font& font, sf::RenderWindow& window)
 
 }
 
-void world::drawLevel(sf::RenderWindow& window, sf::Font& font, sf::Clock clock, int game_lvl)
+void world::drawLevel(sf::RenderWindow& window, sf::Font& font, sf::Clock& clock, int game_lvl)
 {
     sf::Text text;
     
     std::string lvl = "Level " + std::to_string(game_lvl);
-    std::cout << lvl << std::endl;
     text.setFont(font);
     text.setPosition(width / 3, height / 2.5);
     text.setString( lvl);
@@ -259,6 +266,52 @@ void world::drawLevel(sf::RenderWindow& window, sf::Font& font, sf::Clock clock,
         window.display();
     } while (msec < 2000);
 
+}
+
+void world::gameOver(sf::RenderWindow& window, sf::Font& font, ship& playerShip)
+{
+    sf::Text text1;
+    sf::Text text2;
+    
+    
+    text1.setFont(font);
+    text1.setString("Game Over");
+    text1.setPosition(width / 4, height / 3);
+    text1.setCharacterSize(108);
+    text1.setFillColor(sf::Color::White);
+    text1.setStyle(sf::Text::Bold);
+    
+    text2.setFont(font);
+    text2.setString("Push Space to go again");
+    text2.setPosition(width / 3.5, height / 2.4);
+    text2.setCharacterSize(36);
+    text2.setFillColor(sf::Color::White);
+    
+    window.draw(text1);
+    window.draw(text2);
+    do {
+        window.clear(sf::Color(15, 12, 25));
+        window.draw(text1);
+        window.draw(text2);
+        window.display();
+
+        sf::Event event;
+        while (window.pollEvent(event))
+        {
+            if (event.type == sf::Event::Closed)
+            {
+                window.close();
+                return;
+            }
+        }
+    } while (!sf::Keyboard::isKeyPressed(sf::Keyboard::Space));
+
+    
+    playerShip.decrimentLives(frameWidth, frameHeight);
+    for(int i = 0; i < 4; i++)
+    {
+        playerShip.addlife();
+    }
 }
 
 /*

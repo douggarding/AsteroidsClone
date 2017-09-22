@@ -182,6 +182,7 @@ void ship::decrimentLives(int width, int height){
     speed.y = 0.0;
     old_rotation = 0;
     triangle.setPosition((width / 2) -10, (height / 2) - 10);
+    triangle.setRotation(0);
     lives--;
 }
 
@@ -228,3 +229,9 @@ void ship::addlife()
 {
     lives++;
 }
+
+int ship::livesLeft()
+{
+    return lives;
+}
+

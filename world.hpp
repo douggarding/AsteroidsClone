@@ -43,7 +43,9 @@ public:
     
     void runWorld();
     void drawBullets(std::vector<bullet>& bullets, sf::RenderWindow& window);
-    void drawLevel(sf::RenderWindow& window, sf::Font& font, sf::Clock clock, int game_lvl);
+    void drawLevel(sf::RenderWindow& window, sf::Font& font, sf::Clock& clock, int game_lvl);
+    void gameOver(sf::RenderWindow& window, sf::Font& font, ship& playerShip);
+
 
 };
 
