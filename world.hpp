@@ -34,6 +34,7 @@ private:
     ship playerShip;
     sf::Clock clock;
     sf::Time timeOfLastBullet;
+    sf::Time timeOfLastPower;
     std::vector<asteroid> asteroids;
     std::vector<bullet> bullets;
     std::vector<Missile> missiles;

@@ -93,9 +93,14 @@ void world::runWorld(){
         playerShip.rotateLeft();
         playerShip.thrusters(width, height);
         
+        // Cheat to enter a power up into the game
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q)){
+            PowerUp::addPowerUp(powerUps);
+        }
+        
         
         sf::Time currentTime = clock.getElapsedTime();
-        sf::Int32 msec =  currentTime.asMilliseconds() - timeOfLastBullet.asMilliseconds();
+        sf::Int32 msec = currentTime.asMilliseconds() - timeOfLastBullet.asMilliseconds();
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && (msec > 200))
         {
             // If missile power up is active, create missiles instead of bullets
@@ -106,6 +111,14 @@ void world::runWorld(){
                 bullet::makeBullets(bullets, playerShip, bulletSpray);
                 timeOfLastBullet = clock.getElapsedTime();
             //}
+        }
+        
+        // Cheat to enter a power up into the game
+        currentTime = clock.getElapsedTime();
+        msec = currentTime.asMilliseconds() - timeOfLastPower.asMilliseconds();
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q) && msec > 1000){
+            PowerUp::addPowerUp(powerUps);
+            timeOfLastPower = clock.getElapsedTime();
         }
         
         
@@ -290,9 +303,11 @@ void world::drawLevel(sf::RenderWindow& window, sf::Font& font, sf::Clock& clock
     text.setFillColor(sf::Color::White);
     text.setStyle(sf::Text::Bold);
 
-    //clock.restart();
+    
+    sf::Time currentTime = clock.getElapsedTime();
+    // clock.restart();
     sf::Time elapsed = clock.getElapsedTime();
-    sf::Int32 msec = elapsed.asMilliseconds();
+    sf::Int32 msec = currentTime.asMilliseconds() - elapsed.asMilliseconds();
     do {
         elapsed = clock.getElapsedTime();
         msec = elapsed.asMilliseconds();
