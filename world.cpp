@@ -290,16 +290,16 @@ void world::drawLevel(sf::RenderWindow& window, sf::Font& font, sf::Clock& clock
     text.setFillColor(sf::Color::White);
     text.setStyle(sf::Text::Bold);
 
-    //clock.restart();
     sf::Time elapsed = clock.getElapsedTime();
-    sf::Int32 msec = elapsed.asMilliseconds();
+    sf::Int32 msec1 = elapsed.asMilliseconds();
+    sf::Int32 msec2 = elapsed.asMilliseconds();
     do {
         elapsed = clock.getElapsedTime();
-        msec = elapsed.asMilliseconds();
+        msec2 = elapsed.asMilliseconds();
         window.clear(sf::Color(15, 12, 25));
         window.draw(text);
         window.display();
-    } while (msec < 2000);
+    } while (msec2 - msec1 < 2000);
 
 }
 
