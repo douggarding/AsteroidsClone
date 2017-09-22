@@ -16,6 +16,8 @@
 #include "asteroid.hpp"
 #include "collisions.hpp"
 #include "PowerUp.hpp"
+#include <string>
+#include <iostream>
 
 world::world(int w, int h){
     // Create seed for the random number generator
@@ -110,7 +112,9 @@ void world::runWorld(){
         if (asteroids.size() == 0)
         {
             game_lvl++;
-            drawLevel(window, game_lvl); // doesn't even make it to the screen. Need it to linger. display or clock?
+            drawLevel(window, font, clock, game_lvl);
+            playerShip.addlife();
+            playerShip.decrimentLives(width, height);
             asteroid::makeAsteroids(asteroids, game_lvl, height, width, playerShip.getPosition());
         }
         
@@ -231,22 +235,30 @@ void world::titleScreen(sf::Font& font, sf::RenderWindow& window)
 
 }
 
-void world::drawLevel(sf::RenderWindow& window, int game_lvl)
+void world::drawLevel(sf::RenderWindow& window, sf::Font& font, sf::Clock clock, int game_lvl)
 {
     sf::Text text;
-    sf::Font font;
     
+    std::string lvl = "Level " + std::to_string(game_lvl);
+    std::cout << lvl << std::endl;
     text.setFont(font);
-    
-    text.setString("Hello world");
-    
-    text.setCharacterSize(48);
-    
-    text.setFillColor(sf::Color::Red);
-    
+    text.setPosition(width / 3, height / 2.5);
+    text.setString( lvl);
+    text.setCharacterSize(96);
+    text.setFillColor(sf::Color::White);
     text.setStyle(sf::Text::Bold);
 
-    window.draw(text);
+    clock.restart();
+    sf::Time elapsed = clock.getElapsedTime();
+    sf::Int32 msec = elapsed.asMilliseconds();
+    do {
+        elapsed = clock.getElapsedTime();
+        msec = elapsed.asMilliseconds();
+        window.clear(sf::Color(15, 12, 25));
+        window.draw(text);
+        window.display();
+    } while (msec < 2000);
+
 }
 
 /*

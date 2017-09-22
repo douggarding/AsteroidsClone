@@ -208,7 +208,7 @@ void ship::shipReset(sf::Clock& clock, std::vector<asteroid>& asteroids, ship& p
     {
         window.clear(sf::Color(15, 12, 25));
         bool unsafe = false;
-        sf::Time elapsed = clock.getElapsedTime();
+        elapsed = clock.getElapsedTime();
         sec = elapsed.asSeconds();
         for (auto &element : asteroids)
         {
@@ -222,4 +222,9 @@ void ship::shipReset(sf::Clock& clock, std::vector<asteroid>& asteroids, ship& p
         window.display();
         
     }while(unsafe || sec < 0.1);
+}
+
+void ship::addlife()
+{
+    lives++;
 }
