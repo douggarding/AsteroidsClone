@@ -15,6 +15,10 @@
 #include "ship.hpp"
 #include "PowerUp.hpp"
 
+/// Collisions are important for any shooter game.
+/// Asteroids is no exception. Bullets can hit
+/// asteroids, the ship can hit asteroids or
+/// power-ups. Nothing else is taken into consideration.
 class collisions{
 public:
     // Detects a collision between an Asteroid and a Bullet

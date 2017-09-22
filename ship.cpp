@@ -83,10 +83,7 @@ sf::ConvexShape ship::buildFlameFrame(){
     return spaceShip;
 }
 
-// what I have makes the triangle move if you push up
-// and rotates it if you push left or right. Try running
-// it though. It is NOT intuitive. We're going to have to
-// tinker with it.
+
 void ship::rotateRight()
 {
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
@@ -211,6 +208,7 @@ void ship::decrimentLives(int width, int height){
     speed.y = 0.0;
     old_rotation = 0;
     triangle.setPosition((width / 2) -10, (height / 2) - 10);
+    triangle.setRotation(0);
     lives--;
 }
 
@@ -241,7 +239,7 @@ void ship::shipReset(sf::Clock& clock, std::vector<asteroid>& asteroids, ship& p
     {
         window.clear(sf::Color(15, 12, 25));
         bool unsafe = false;
-        sf::Time elapsed = clock.getElapsedTime();
+        elapsed = clock.getElapsedTime();
         sec = elapsed.asSeconds();
         for (auto &element : asteroids)
         {
@@ -254,5 +252,16 @@ void ship::shipReset(sf::Clock& clock, std::vector<asteroid>& asteroids, ship& p
         }
         window.display();
         
-    }while(unsafe || sec < 0.1);
+    }while(unsafe || sec < 0.5);
 }
+
+void ship::addlife()
+{
+    lives++;
+}
+
+int ship::livesLeft()
+{
+    return lives;
+}
+

@@ -35,7 +35,7 @@ bool collisions::shipAsteroid(ship &s, asteroid &a){
     // Calculate distance between the two using distance formula
     int distance = sqrt(pow((sPosition.x - aPosition.x), 2) + pow((sPosition.y - aPosition.y), 2));
     
-    return (distance <= (a.getRadius()));
+    return (distance <= (a.getRadius() + 20));
 }
 
 // Check if ship has collided with a power up

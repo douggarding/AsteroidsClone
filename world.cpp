@@ -16,6 +16,8 @@
 #include "asteroid.hpp"
 #include "collisions.hpp"
 #include "PowerUp.hpp"
+#include <string>
+#include <iostream>
 
 world::world(int w, int h){
     // Create seed for the random number generator
@@ -115,8 +117,11 @@ void world::runWorld(){
         if (asteroids.size() == 0)
         {
             game_lvl++;
-            drawLevel(window, game_lvl); // doesn't even make it to the screen. Need it to linger. display or clock?
+            drawLevel(window, font, clock, game_lvl);
+            playerShip.addlife();
+            playerShip.decrimentLives(width, height);
             asteroid::makeAsteroids(asteroids, game_lvl, height, width, playerShip.getPosition());
+            bullets.erase(bullets.begin(), bullets.end());
         }
         
         // Deactivate power ups if necessary
@@ -188,7 +193,14 @@ void world::runWorld(){
                 // Add code to destroy an asteroid if ship hits it?
             }
         }
-        
+        if (playerShip.livesLeft() == 0)
+        {
+            gameOver(window, font, playerShip);
+            game_lvl = 1;
+            bullets.erase(bullets.begin(), bullets.end());
+            asteroids.erase(asteroids.begin(), asteroids.end());
+            asteroid::makeAsteroids(asteroids, game_lvl, height, width, playerShip.getPosition());
+        }
         
         // Update astroid locations
         for(auto &element : asteroids){
@@ -266,18 +278,49 @@ void world::titleScreen(sf::Font& font, sf::RenderWindow& window)
     
 }
 
-void world::drawLevel(sf::RenderWindow& window, int game_lvl)
+void world::drawLevel(sf::RenderWindow& window, sf::Font& font, sf::Clock& clock, int game_lvl)
 {
     sf::Text text;
-    sf::Font font;
     
+    std::string lvl = "Level " + std::to_string(game_lvl);
     text.setFont(font);
+    text.setPosition(width / 3, height / 2.5);
+    text.setString( lvl);
+    text.setCharacterSize(96);
+    text.setFillColor(sf::Color::White);
+    text.setStyle(sf::Text::Bold);
+
+    clock.restart();
+    sf::Time elapsed = clock.getElapsedTime();
+    sf::Int32 msec = elapsed.asMilliseconds();
+    do {
+        elapsed = clock.getElapsedTime();
+        msec = elapsed.asMilliseconds();
+        window.clear(sf::Color(15, 12, 25));
+        window.draw(text);
+        window.display();
+    } while (msec < 2000);
+
+}
+
+void world::gameOver(sf::RenderWindow& window, sf::Font& font, ship& playerShip)
+{
+    sf::Text text1;
+    sf::Text text2;
     
-    text.setString("Hello world");
     
-    text.setCharacterSize(48);
+    text1.setFont(font);
+    text1.setString("Game Over");
+    text1.setPosition(width / 4, height / 3);
+    text1.setCharacterSize(108);
+    text1.setFillColor(sf::Color::White);
+    text1.setStyle(sf::Text::Bold);
     
-    text.setFillColor(sf::Color::Red);
+    text2.setFont(font);
+    text2.setString("Push Space to go again");
+    text2.setPosition(width / 3.5, height / 2.4);
+    text2.setCharacterSize(36);
+    text2.setFillColor(sf::Color::White);
     
     text.setStyle(sf::Text::Bold);
     
