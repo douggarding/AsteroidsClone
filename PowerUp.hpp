@@ -16,6 +16,12 @@ private:
     sf::ConvexShape shape;
     // Specifies which powerup
     std::string type;
+    // Tracks if the power up is on the field
+    bool isOnField;
+    // Tracks how much time the power up has left
+    sf::Time startTime;
+    // How long the power up will last (in seconds)
+    float timeActive;
     
     // Creates the convexShape object
     sf::ConvexShape buildShape(std::string type);
@@ -29,11 +35,20 @@ public:
     PowerUp(std::string power);
     // Draws the power up to the screen
     void drawPowerUp(sf::RenderWindow &window);
+    
     // Adds a power up to an array of power ups
     static void addPowerUp(std::vector<PowerUp> &list);
     
     // Returns the bounds of the object for collisions
     sf::FloatRect getBounds();
+    bool getIsOnField();
+    void setIsOnField(bool b);
+    sf::Time getStartTime();
+    void setStartTime(sf::Time t);
+    float getTimeActive();
+    
+    // Gets the powerup type
+    std::string getPowerType() const;
 };
 
 #endif /* powerUp_hpp */

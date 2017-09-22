@@ -13,6 +13,9 @@
 #include <time.h> // uses this for the seed for the random number
 #define PI 3.14159265
 
+asteroid::asteroid(){
+    
+}
 
 // Constructs an asteroid of size s (size can be 1, 2, or 3)
 asteroid::asteroid(int lvl, sf::Vector2f position, int dir, float sp){
@@ -137,7 +140,6 @@ int asteroid::getSize(){
 sf::Vector2f asteroid::getPosition(){
     return circle.getPosition();
 }
-
 
 int asteroid::getRotation()
 {

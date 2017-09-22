@@ -24,12 +24,11 @@ world::world(int w, int h){
     height = h;
     playerShip = ship::ship(20, width/2 - 10, height/2 - 10);
     game_lvl = 1;
+    timeOfLastBullet = clock.getElapsedTime();
     
     // Create four level 3 asteroids for start of game
     asteroid::makeAsteroids(asteroids, game_lvl, height, width, playerShip.getPosition());
     
-    // start with a power up on screen
-    PowerUp::addPowerUp(powerUps);
 }
 
 
@@ -81,7 +80,7 @@ void world::runWorld(){
         
         // Clears the previous frame
         window.clear(sf::Color(15, 12, 25));
-
+        
         
         
         ///////////////////////
@@ -93,12 +92,18 @@ void world::runWorld(){
         playerShip.thrusters(width, height);
         
         
-        sf::Time elapsed = clock.getElapsedTime();
-        sf::Int32 msec = elapsed.asMilliseconds();
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && (msec > 100))
+        sf::Time currentTime = clock.getElapsedTime();
+        sf::Int32 msec =  currentTime.asMilliseconds() - timeOfLastBullet.asMilliseconds();
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && (msec > 200))
         {
-            bullet::makeBullets(bullets, playerShip);
-            clock.restart();
+            // If missile power up is active, create missiles instead of bullets
+            //if(missile){
+            //    Missile::makeMissiles(missiles, playerShip, asteroids);
+            //}
+            //else{
+                bullet::makeBullets(bullets, playerShip, bulletSpray);
+                timeOfLastBullet = clock.getElapsedTime();
+            //}
         }
         
         
@@ -114,13 +119,34 @@ void world::runWorld(){
             asteroid::makeAsteroids(asteroids, game_lvl, height, width, playerShip.getPosition());
         }
         
-        // Insert power up
+        // Deactivate power ups if necessary
+        for(int i = 0; i < powerUps.size(); i++ ){
+            PowerUp temp = powerUps[i];
+            
+            // If the powerup is not active on a player, go to next power up
+            if(temp.getIsOnField()){
+                continue;
+            }
+            
+            // If the power up time has reached its limit, remove the power completely
+            sf::Time timeActive = clock.getElapsedTime() - temp.getStartTime();
+            if(timeActive.asSeconds() >= temp.getTimeActive()){
+                powerUps.erase(powerUps.begin() + i);
+                i--;
+                world::deactivatePowerup(temp);
+            }
+        }
+        
+        // Insert power up every so often
+        if(static_cast<int>(currentTime.asMilliseconds()) % 10000 == 0){
+            PowerUp::addPowerUp(powerUps);
+        }
+        
         
         // Detect ship power up collisions
         for(int i = 0; i < powerUps.size(); i++){
             if(collisions::shipPowerUp(playerShip, powerUps[i])){
-                powerUps.erase(powerUps.begin() + i);
-                i--;
+                world::applyPowerUp(powerUps[i]);
             }
         }
         
@@ -151,9 +177,15 @@ void world::runWorld(){
         for (int i = 0; i < asteroids.size(); i++){
             // Check if asteroid has collided with ship
             if(collisions::shipAsteroid(playerShip, asteroids[i])){
-                playerShip.decrimentLives(width, height);
-                bullets.erase(bullets.begin(), bullets.end());
-                playerShip.shipReset(clock, asteroids, playerShip, width, height, window);
+                
+                // If there's no shield power up, destroy the ship
+                if(!shield){
+                    playerShip.decrimentLives(width, height);
+                    bullets.erase(bullets.begin(), bullets.end());
+                    playerShip.shipReset(clock, asteroids, playerShip, width, height, window);
+                }
+                
+                // Add code to destroy an asteroid if ship hits it?
             }
         }
         
@@ -188,10 +220,13 @@ void world::runWorld(){
         for(auto element : bullets){
             element.drawBullet(window);
         }
-
+        
         // Draw Powerups
         for(auto element : powerUps){
-            element.drawPowerUp(window);
+            // Check if it's still on the field
+            if(element.getIsOnField()){
+                element.drawPowerUp(window);
+            }
         }
         
         // Draw lives
@@ -210,7 +245,7 @@ void world::titleScreen(sf::Font& font, sf::RenderWindow& window)
 {
     sf::Text text1;
     sf::Text text2;
-
+    
     
     text1.setFont(font);
     text1.setString("Asteroids");
@@ -227,8 +262,8 @@ void world::titleScreen(sf::Font& font, sf::RenderWindow& window)
     
     window.draw(text1);
     window.draw(text2);
-
-
+    
+    
 }
 
 void world::drawLevel(sf::RenderWindow& window, int game_lvl)
@@ -245,14 +280,41 @@ void world::drawLevel(sf::RenderWindow& window, int game_lvl)
     text.setFillColor(sf::Color::Red);
     
     text.setStyle(sf::Text::Bold);
-
+    
     window.draw(text);
 }
 
-/*
- Say you want your game to run at 60 FPS. That gives you about 16 milliseconds per frame.
- As long as you can reliably do all of your game processing and rendering in less than 
- that time, you can run at a steady frame rate. All you do is process the frame and then 
- wait until it’s time for the next one
- */
+void world::applyPowerUp(PowerUp &power){
+    if(power.getPowerType() == "shield"){
+        shield = true;
+        playerShip.setDrawShield(true);
+    }
+    else if(power.getPowerType() == "1up"){
+        playerShip.incrementLives();
+    }
+    else if(power.getPowerType() == "spray"){
+        bulletSpray = true;
+    }
+    else if(power.getPowerType() == "missile"){
+        missile = true;
+    }
+    
+    // Set the time this powerup became active
+    power.setStartTime(clock.getElapsedTime());
+    // Take the power up icon off the field
+    power.setIsOnField(false);
+}
+
+void world::deactivatePowerup(PowerUp &power){
+    if(power.getPowerType() == "shield"){
+        shield = false;
+        playerShip.setDrawShield(false);
+    }
+    else if(power.getPowerType() == "spray"){
+        bulletSpray = false;
+    }
+    else if(power.getPowerType() == "missile"){
+        missile = false;
+    }
+}
 

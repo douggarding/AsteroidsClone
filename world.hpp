@@ -16,22 +16,30 @@
 #include "bullets.hpp"
 #include "collisions.hpp"
 #include "PowerUp.hpp"
-
+#include "HomingMissile.hpp"
+#include <unordered_map>
 
 
 class world{
 private:
-    // Width and height of window/game
     int width;
     int height;
     int game_lvl;
     ship playerShip;
     sf::Clock clock;
+    sf::Time timeOfLastBullet;
     std::vector<asteroid> asteroids;
     std::vector<bullet> bullets;
-    std::vector<PowerUp> powerUps;
+    std::vector<Missile> missiles;
+    std::vector<PowerUp> powerUps; // Stores the powerups that are on the field
     
-    bool bulletAsteroidCollision(bullet &b, asteroid &a);
+    // Power up variables
+    bool shield;
+    bool bulletSpray;
+    bool missile;
+    
+    void applyPowerUp(PowerUp &power);
+    void deactivatePowerup(PowerUp &power);
     
 public:
     // static ints that represent the width and height

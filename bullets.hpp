@@ -38,7 +38,7 @@ public:
     static void destroyBullets(std::vector<bullet>& bullets);
 
     // adds bullets to the vector of bullets
-    static void makeBullets(std::vector<bullet>& bullets, const ship& playerShip);
+    static void makeBullets(std::vector<bullet>& bullets, const ship& playerShip, bool hasSpray);
 
 };
 

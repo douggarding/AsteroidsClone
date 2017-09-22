@@ -14,12 +14,15 @@
 class ship{
     sf::ConvexShape triangle;
     sf::ConvexShape flameShip;
+    sf::ConvexShape shield;
     sf::Vector2f speed; // contains initial velocity(Vo) in x and y directions
     int old_rotation;
     int lives;
+    bool drawShield;
     
     sf::ConvexShape buildFrame(int xPos, int yPos);
     sf::ConvexShape buildFlameFrame();
+    sf::ConvexShape buildShield();
     
 public:
     
@@ -31,9 +34,11 @@ public:
     sf::CircleShape getShip();
     sf::Vector2f getPosition() const;
     int rotationGet() const;
+    void setDrawShield(bool b);
     void drawShip(sf::RenderWindow &window);
     void drawLives(sf::RenderWindow& window);
     void decrimentLives(int width, int height);
+    void incrementLives();
     static void shipReset(sf::Clock& clock, std::vector<asteroid>& asteroids, ship& playerShip, int width, int height, sf::RenderWindow& window);
     
     // Returns the bounds of the object for collisions

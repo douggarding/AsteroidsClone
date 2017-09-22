@@ -24,6 +24,8 @@ ship::ship(int s, int xPos, int yPos){
     lives = 3;
     triangle = buildFrame(xPos, yPos);
     flameShip = buildFlameFrame();
+    shield = buildShield();
+    drawShield = false;
     
 }
 
@@ -41,6 +43,22 @@ sf::ConvexShape ship::buildFrame(int xPos, int yPos){
     spaceShip.setOutlineColor(sf::Color::White);
     
     return spaceShip;
+}
+
+sf::ConvexShape ship::buildShield(){
+    // Create the spaceship
+    sf::ConvexShape shipShield;
+    shipShield.setPointCount(3);
+    shipShield.setPoint(0, sf::Vector2f(0, 0));
+    shipShield.setPoint(1, sf::Vector2f(15, 50));
+    shipShield.setPoint(2, sf::Vector2f(-15, 50));
+    shipShield.setOrigin(0, 28);
+    shipShield.setFillColor(sf::Color::Transparent);
+    shipShield.setOutlineThickness(4);
+    shipShield.setOutlineColor(sf::Color(0, 178, 248));
+    shipShield.setScale(1.4, 1.3);
+    
+    return shipShield;
 }
 
 // Creates a space ship with a flame
@@ -160,6 +178,13 @@ void ship::drawShip(sf::RenderWindow& window){
     else{
         window.draw(triangle);
     }
+    
+    // If the ship currently has a shield, draw the shielf
+    if(drawShield){
+        shield.setRotation(triangle.getRotation());
+        shield.setPosition(triangle.getPosition());
+        window.draw(shield);
+    }
 }
 
 // Returns the bounds of the object for collisions
@@ -177,12 +202,20 @@ int ship::rotationGet() const
     return triangle.getRotation();
 }
 
+void ship::setDrawShield(bool b){
+    drawShield = b;
+}
+
 void ship::decrimentLives(int width, int height){
     speed.x = 0.0;
     speed.y = 0.0;
     old_rotation = 0;
     triangle.setPosition((width / 2) -10, (height / 2) - 10);
     lives--;
+}
+
+void ship::incrementLives(){
+    lives++;
 }
 
 void ship::drawLives(sf::RenderWindow& window)
@@ -200,7 +233,7 @@ void ship::drawLives(sf::RenderWindow& window)
 
 void ship::shipReset(sf::Clock& clock, std::vector<asteroid>& asteroids, ship& playerShip, int width, int height, sf::RenderWindow& window)
 {
-    clock.restart();
+    //clock.restart();
     sf::Time elapsed = clock.getElapsedTime();
     sf::Int32 sec = elapsed.asSeconds();
     bool unsafe = false;

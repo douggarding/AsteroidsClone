@@ -12,11 +12,9 @@
 
 bullet::bullet(sf::Vector2f pos, int rot)
 {
-
     rectangle = buildBullet(pos, rot);
     speed = 1.3;
     distance = 0;
-
 }
 
 sf::RectangleShape bullet::buildBullet(sf::Vector2f pos, int rot)
@@ -61,8 +59,16 @@ void bullet::updatePosition(int width, int height){
 }
 
 
-void bullet::makeBullets(std::vector<bullet>& bullets, const ship& playerShip)
+void bullet::makeBullets(std::vector<bullet>& bullets, const ship& playerShip, bool hasSpray)
 {
+    // If the spray power is active, need to make extra bullets
+    if(hasSpray){
+        bullet rightBullet(playerShip.getPosition(), playerShip.rotationGet() + 10);
+        bullet leftBullet(playerShip.getPosition(), playerShip.rotationGet() - 10);
+        bullets.push_back(rightBullet);
+        bullets.push_back(leftBullet);
+    }
+    
     bullets.push_back(bullet(playerShip.getPosition(), playerShip.rotationGet()));
 }
 
