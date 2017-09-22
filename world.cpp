@@ -304,10 +304,10 @@ void world::drawLevel(sf::RenderWindow& window, sf::Font& font, sf::Clock& clock
     text.setStyle(sf::Text::Bold);
 
     
-    sf::Time currentTime = clock.getElapsedTime();
     // clock.restart();
     sf::Time elapsed = clock.getElapsedTime();
-    sf::Int32 msec = currentTime.asMilliseconds() - elapsed.asMilliseconds();
+    sf::Int32 msec1 = elapsed.asMilliseconds();
+    sf::Int32 msec2 = elapsed.asMilliseconds();
     do {
         elapsed = clock.getElapsedTime();
         msec2 = elapsed.asMilliseconds();
