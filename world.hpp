@@ -19,6 +19,7 @@
 #include "HomingMissile.hpp"
 #include <unordered_map>
 
+
 /// World class. This is where most of the game happens.
 /// It also contains all the other classes. There are
 /// multiple screens: a title screen, level screens, and
@@ -26,8 +27,9 @@
 /// Space Age.
 class world{
 private:
-    int width;
-    int height;
+    // Width and height of window/game
+    int width; /// Width of screen
+    int height; /// Height of screen
     int game_lvl;
     ship playerShip;
     sf::Clock clock;
@@ -51,7 +53,7 @@ public:
     const static int frameHeight = 1200; /// But they came so late in the game that we never got to use them.
     
     world(int w, int h);
-    void titleScreen(sf::Font& font, sf::RenderWindow& window);
+    void titleScreen(sf::Font& font, sf::RenderWindow& window); /// Title Screen
     
     void runWorld();
     void drawBullets(std::vector<bullet>& bullets, sf::RenderWindow& window);

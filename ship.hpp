@@ -20,11 +20,12 @@
 /// with an asteroid a life is lost and the ship is
 /// placed back in the center of the screen.
 class ship{
-    sf::ConvexShape triangle;
-    sf::ConvexShape flameShip;
-    sf::ConvexShape shield;
-    sf::Vector2f speed; // contains initial velocity(Vo) in x and y directions
-    int old_rotation;
+    sf::ConvexShape triangle; /// ship
+    sf::ConvexShape flameShip; /// ship plus thruster
+    sf::ConvexShape shield; /// shield for ship
+    sf::Vector2f speed; /// contains initial (constant) velocity(Vo) in x and y directions
+    int old_rotation; /// Necessary to save this in order to continue in the direction that the
+    /// thrusters last pushed the ship.
     int lives;
     bool drawShield;
     
@@ -44,17 +45,19 @@ public:
     sf::CircleShape getShip();
     sf::Vector2f getPosition() const; /// We replaced certain sf::methods with our own. Get being the most common.
     int rotationGet() const;
-    void setDrawShield(bool b);
-    void drawShip(sf::RenderWindow &window);
-    void drawLives(sf::RenderWindow& window);
-    void decrimentLives(int width, int height);
-    void incrementLives();
-    static void shipReset(sf::Clock& clock, std::vector<asteroid>& asteroids, ship& playerShip, int width, int height, sf::RenderWindow& window);
+    void drawShip(sf::RenderWindow &window); /// We also made our own draw methods.
+    void drawLives(sf::RenderWindow& window); /// The number of lives you currently have displays in the
+    /// top left corner of the screen
+    void decrimentLives(int width, int height); /// The width and height were necessary for us to be able to
+    /// reset the ship as part of the death process.
+    static void shipReset(sf::Clock& clock, std::vector<asteroid>& asteroids, ship& playerShip, int width, int height, sf::RenderWindow& window); /// This returns the ship to the center of the screen after dying.
+    /// It continues to run until it's safe for the ship to reappear and until at least half a second has passed.
     
     // Returns the bounds of the object for collisions
     sf::FloatRect getBounds(); /// For power-ups only.
 
-
+    void setDrawShield(bool b); /// Sets whether a shield will be drawn or not
+    void incrementLives(); /// Increases the number of player lives
     
 };
 

@@ -47,12 +47,10 @@ public:
     int getRadius();
     int getLevel();
     
-    
-    // Populates a vector of asteroids
-    static void makeAsteroids(std::vector<asteroid>& asteroids, int game_lvl, int ast_lvl, sf::Vector2f startPos);
     /// Populates a vector of asteroids
-    static void makeAsteroids(std::vector<asteroid>& asteroids, int game_lvl, \
-                              int height, int width, sf::Vector2f shipPos);
+    static void makeAsteroids(std::vector<asteroid>& asteroids, int game_lvl, int ast_lvl, sf::Vector2f startPos);
+    // Populates a vector of asteroids
+    static void makeAsteroids(std::vector<asteroid>& asteroids, int game_lvl, int height, int width, sf::Vector2f shipPos);
     
 };
 

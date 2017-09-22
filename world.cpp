@@ -290,7 +290,7 @@ void world::drawLevel(sf::RenderWindow& window, sf::Font& font, sf::Clock& clock
     text.setFillColor(sf::Color::White);
     text.setStyle(sf::Text::Bold);
 
-    clock.restart();
+    //clock.restart();
     sf::Time elapsed = clock.getElapsedTime();
     sf::Int32 msec = elapsed.asMilliseconds();
     do {
@@ -322,9 +322,31 @@ void world::gameOver(sf::RenderWindow& window, sf::Font& font, ship& playerShip)
     text2.setCharacterSize(36);
     text2.setFillColor(sf::Color::White);
     
-    text.setStyle(sf::Text::Bold);
+    window.draw(text1);
+    window.draw(text2);
+    do {
+        window.clear(sf::Color(15, 12, 25));
+        window.draw(text1);
+        window.draw(text2);
+        window.display();
+
+        sf::Event event;
+        while (window.pollEvent(event))
+        {
+            if (event.type == sf::Event::Closed)
+            {
+                window.close();
+                return;
+            }
+        }
+    } while (!sf::Keyboard::isKeyPressed(sf::Keyboard::Space));
+
     
-    window.draw(text);
+    playerShip.decrimentLives(frameWidth, frameHeight);
+    for(int i = 0; i < 4; i++)
+    {
+        playerShip.addlife();
+    }
 }
 
 void world::applyPowerUp(PowerUp &power){
